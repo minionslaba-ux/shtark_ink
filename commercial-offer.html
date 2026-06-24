@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<title>Shtark INK · Коммерческое предложение</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--ink:#0E0F12;--ink2:#15171C;--red:#E2231A;--yel:#F5C518;--cyan:#00AEEF;--mag:#EC008C;--grey:#9CA0AB;--soft:#6B7280;--line:#E5E7EB;--bg:#F4F5F7;--fd:'Space Grotesk','Inter',sans-serif;--fb:'Inter',sans-serif;--fm:'JetBrains Mono',monospace;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#2a2c30;font-family:var(--fb);color:var(--ink);-webkit-font-smoothing:antialiased;}
+  .deck{display:flex;flex-direction:column;align-items:center;gap:22px;padding:34px 16px;}
+  .slide{width:1280px;height:720px;background:#fff;position:relative;overflow:hidden;box-shadow:0 24px 64px -24px rgba(0,0,0,.6);flex-shrink:0;}
+  .slide--dark{background:var(--ink);color:#fff;}
+  .dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.03) 1.5px,transparent 1.5px);background-size:24px 24px;pointer-events:none;}
+  .pad{position:absolute;inset:0;padding:60px 70px;}
+  .cmyk{display:flex;width:170px;height:10px;}
+  .cmyk i{flex:1;}.cmyk i:nth-child(1){background:var(--cyan);}.cmyk i:nth-child(2){background:var(--mag);}.cmyk i:nth-child(3){background:var(--yel);}.cmyk i:nth-child(4){background:var(--red);}
+  .logo{font-family:var(--fd);font-weight:700;font-size:32px;line-height:.9;}
+  .logo small{display:block;font-size:14px;letter-spacing:6px;font-weight:600;margin-top:2px;}
+  .tag{font-family:var(--fm);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--red);display:inline-flex;align-items:center;gap:11px;font-weight:600;}
+  .tag::before{content:'';width:24px;height:3px;background:var(--red);}
+  .tag--y{color:var(--yel);}.tag--y::before{background:var(--yel);}
+  .h1{font-family:var(--fd);font-weight:700;letter-spacing:-1.3px;line-height:1.05;}
+  .lead{font-size:18px;line-height:1.6;color:#3F4451;}.slide--dark .lead{color:#C6CAD2;}
+  .foot{position:absolute;left:70px;right:70px;bottom:38px;display:flex;justify-content:space-between;font-family:var(--fm);font-size:12px;color:var(--soft);border-top:1px solid var(--line);padding-top:13px;}
+  .slide--dark .foot{color:var(--grey);border-color:rgba(255,255,255,.1);}
+  .num{position:absolute;top:60px;right:70px;font-family:var(--fm);font-size:12px;color:var(--soft);}.slide--dark .num{color:var(--grey);}
+  img{display:block;}.imgcover{width:100%;height:100%;object-fit:cover;}
+  .split-photo{position:absolute;top:0;right:0;width:46%;height:100%;}
+  .split-photo img{width:100%;height:100%;object-fit:cover;}
+  .split-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--ink),rgba(14,15,18,0) 55%);}
+  .stat{background:var(--ink2);padding:18px 22px;}.stat b{font-family:var(--fd);font-size:34px;font-weight:700;display:block;color:#fff;}.stat span{font-size:13px;color:var(--grey);}
+  .valcard{background:#fff;border:1px solid var(--line);border-top:5px solid var(--yel);padding:20px 22px;}
+  .valcard .vt{font-family:var(--fd);font-weight:700;font-size:21px;}
+  .valcard .vd{font-size:14px;color:var(--soft);line-height:1.45;margin-top:6px;}
+  .photocap{display:flex;flex-direction:column;gap:11px;height:100%;}
+  .photocap .ph{flex:1;border-radius:10px;overflow:hidden;}.photocap .ph img{width:100%;height:100%;object-fit:cover;}
+  .photocap .ct{font-family:var(--fd);font-weight:700;font-size:19px;}.slide--dark .photocap .ct{color:#fff;}
+  .photocap .cd{font-size:13px;color:var(--soft);line-height:1.4;}.slide--dark .photocap .cd{color:var(--grey);}
+  .person{background:var(--bg);border-radius:10px;overflow:hidden;}
+  .person .ph{width:100%;height:170px;}.person .ph img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+  .person .pb{padding:11px 15px 14px;}
+  .person .pn{font-family:var(--fd);font-weight:700;font-size:18px;}
+  .person .pr{font-size:11px;color:var(--red);font-weight:600;margin-top:2px;text-transform:uppercase;letter-spacing:.3px;line-height:1.3;}
+  /* booklet helpers */
+  .toc{display:grid;grid-template-columns:1fr 1fr;gap:14px 48px;margin-top:30px;}
+  .toc__row{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--line);padding:13px 0;}
+  .slide--dark .toc__row{border-color:rgba(255,255,255,.1);}
+  .toc__n{font-family:var(--fm);font-size:13px;color:var(--yel);font-weight:600;width:30px;flex-shrink:0;}
+  .toc__t{font-family:var(--fd);font-weight:600;font-size:19px;color:#fff;}
+  .toc__d{margin-left:auto;font-family:var(--fm);font-size:12px;color:var(--grey);}
+  .ser{display:grid;grid-template-columns:.92fr 1.08fr;gap:46px;height:520px;align-items:center;margin-top:18px;}
+  .ser__img{height:100%;border-radius:12px;overflow:hidden;position:relative;}
+  .ser__img img{width:100%;height:100%;object-fit:cover;}
+  .ser__badge{position:absolute;left:16px;top:16px;background:var(--yel);color:var(--ink);font-family:var(--fd);font-weight:700;font-size:13px;letter-spacing:1px;padding:6px 14px;border-radius:6px;}
+  .spec{margin-top:18px;border-top:1px solid var(--line);}
+  .slide--dark .spec{border-color:rgba(255,255,255,.12);}
+  .spec__row{display:grid;grid-template-columns:200px 1fr;gap:18px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;}
+  .slide--dark .spec__row{border-color:rgba(255,255,255,.1);}
+  .spec__k{font-family:var(--fm);font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:var(--soft);padding-top:2px;}
+  .spec__v{color:#23262E;line-height:1.45;}.slide--dark .spec__v{color:#E4E6EA;}
+  .spec__v b{font-weight:600;}
+  .pill{display:inline-block;background:var(--bg);color:var(--ink);font-size:12px;font-family:var(--fm);padding:5px 11px;border-radius:999px;margin:0 6px 6px 0;}
+  .slide--dark .pill{background:var(--ink2);color:#D7DAE0;}
+  .ctaBar{background:var(--yel);color:var(--ink);font-family:var(--fd);font-weight:700;font-size:24px;padding:20px 30px;border-radius:10px;display:inline-block;}
+  .feat{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px;}
+  .feat .ico{width:40px;height:40px;border-radius:9px;background:var(--ink);color:var(--yel);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-weight:700;flex-shrink:0;}
+  .slide--dark .feat .ico{background:var(--yel);color:var(--ink);}
+  .feat .ft{font-family:var(--fd);font-weight:600;font-size:18px;margin-bottom:3px;}
+  .feat .fd{font-size:14px;color:var(--soft);line-height:1.5;}.slide--dark .feat .fd{color:var(--grey);}
+  @media print{@page{size:1280px 720px;margin:0;}body{background:#fff;}.deck{gap:0;padding:0;}.slide{box-shadow:none;page-break-after:always;}}
+</style>
+<script src="shtark-ink/site-loader.js"></script>
+<script src="shtark-ink/deck-mobile.js"></script>
+</head>
+<body>
+<div class="deck">
+
+  <!-- 1 COVER -->
+  <section class="slide slide--dark">
+    <div class="split-photo"><img src="shtark-ink/img/banner-2.jpg" alt="Shtark INK" /></div>
+    <div class="dots"></div>
+    <div class="pad" style="display:flex;flex-direction:column;width:64%;">
+      <div class="cmyk"><i></i><i></i><i></i><i></i></div>
+      <div class="logo" style="margin-top:18px;">Shtark<small>INK</small></div>
+      <div style="margin-top:auto;">
+        <div class="tag tag--y">Коммерческое предложение · 2026</div>
+        <h1 class="h1" style="font-size:62px;margin:22px 0 20px;">Спиртовые краски<br>и&nbsp;лаки для&nbsp;печати<br>на&nbsp;гибкой упаковке</h1>
+        <p class="lead" style="max-width:560px;">Производитель флексографических и&nbsp;ротогравюрных красок Shtark&nbsp;INK. Стабильный цвет, собственная лаборатория, отгрузки со&nbsp;склада в&nbsp;Санкт-Петербурге.</p>
+      </div>
+      <div style="margin-top:34px;font-family:var(--fm);font-size:14px;color:#C6CAD2;">shtarkink.com · info@shtarkink.com · +7&nbsp;911&nbsp;037&nbsp;48&nbsp;55</div>
+    </div>
+  </section>
+
+  <!-- 2 CONTENTS -->
+  <section class="slide slide--dark">
+    <div class="dots"></div>
+    <div class="pad">
+      <div class="tag tag--y">Содержание</div><span class="num">02 / 16</span>
+      <h1 class="h1" style="font-size:42px;margin:14px 0 6px;">О&nbsp;чём это предложение</h1>
+      <div class="toc">
+        <div class="toc__row"><span class="toc__n">01</span><span class="toc__t">О компании</span><span class="toc__d">стр. 03</span></div>
+        <div class="toc__row"><span class="toc__n">06</span><span class="toc__t">Серия SURF</span><span class="toc__d">стр. 07</span></div>
+        <div class="toc__row"><span class="toc__n">02</span><span class="toc__t">Производство</span><span class="toc__d">стр. 04</span></div>
+        <div class="toc__row"><span class="toc__n">07</span><span class="toc__t">Серия UNI</span><span class="toc__d">стр. 08</span></div>
+        <div class="toc__row"><span class="toc__n">03</span><span class="toc__t">Лаборатория и&nbsp;качество</span><span class="toc__d">стр. 05</span></div>
+        <div class="toc__row"><span class="toc__n">08</span><span class="toc__t">Серия LAM</span><span class="toc__d">стр. 09</span></div>
+        <div class="toc__row"><span class="toc__n">04</span><span class="toc__t">Продукция — обзор</span><span class="toc__d">стр. 06</span></div>
+        <div class="toc__row"><span class="toc__n">09</span><span class="toc__t">Серия TOP</span><span class="toc__d">стр. 10</span></div>
+        <div class="toc__row"><span class="toc__n">10</span><span class="toc__t">PC BASE · концентраты</span><span class="toc__d">стр. 11</span></div>
+        <div class="toc__row"><span class="toc__n">12</span><span class="toc__t">Команда и&nbsp;сервис</span><span class="toc__d">стр. 14</span></div>
+        <div class="toc__row"><span class="toc__n">11</span><span class="toc__t">Лаки LAQUER</span><span class="toc__d">стр. 12</span></div>
+        <div class="toc__row"><span class="toc__n">13</span><span class="toc__t">Как заказать</span><span class="toc__d">стр. 15</span></div>
+      </div>
+      <div class="foot"><span>shtarkink.com</span><span>Коммерческое предложение · стр. 02 / 16</span></div>
+    </div>
+  </section>
+
+  <!-- 3 ABOUT -->
+  <section class="slide">
+    <div class="split-photo"><img src="shtark-ink/img/cans-lineup.jpg" alt="Краски Shtark INK" /></div>
+    <div class="dots" style="opacity:.4;"></div>
+    <div class="pad" style="width:60%;">
+      <div class="tag">О компании</div><span class="num" style="color:var(--soft);">03 / 16</span>
+      <h1 class="h1" style="font-size:42px;margin:14px 0 18px;">Производитель спиртовых<br>красок и&nbsp;лаков</h1>
+      <p class="lead" style="font-size:16px;margin-bottom:22px;">ООО&nbsp;«Штарк&nbsp;Инк» производит спирторастворимые краски и&nbsp;лаки для&nbsp;флексографической и&nbsp;ротогравюрной печати на&nbsp;гибкой упаковке. Полный цикл&nbsp;— от&nbsp;входного контроля сырья до&nbsp;отгрузки готовой продукции.</p>
+      <div style="display:flex;gap:14px;">
+        <div class="valcard" style="flex:1;"><div class="vt">Стабильный цвет</div><div class="vd">Отличие от&nbsp;эталона не&nbsp;более ΔE&nbsp;1,5 от&nbsp;партии к&nbsp;партии.</div></div>
+        <div class="valcard" style="flex:1;"><div class="vt">Без импорта</div><div class="vd">Ключевые компоненты&nbsp;— российского происхождения.</div></div>
+        <div class="valcard" style="flex:1;"><div class="vt">Своя лаборатория</div><div class="vd">Разработка рецептур и&nbsp;тестирование под&nbsp;задачу клиента.</div></div>
+      </div>
+      <div class="foot"><span>ООО «Штарк Инк» · ИНН 7802677495</span><span>Коммерческое предложение · стр. 03 / 16</span></div>
+    </div>
+  </section>
+
+  <!-- 4 PRODUCTION -->
+  <section class="slide slide--dark">
+    <div class="dots"></div>
+    <div class="pad">
+      <div class="tag tag--y">Производство</div><span class="num">04 / 16</span>
+      <h1 class="h1" style="font-size:40px;margin:12px 0 22px;">Полный цикл и&nbsp;контроль на&nbsp;каждом этапе</h1>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;height:420px;">
+        <div class="photocap"><div class="ph"><img src="shtark-ink/img/prod-svetlana.jpg" alt="Входной контроль" /></div><div><div class="ct">01 · Входной контроль</div><div class="cd">Проверка сырья в&nbsp;лаборатории: вязкость, сухой остаток, цвет.</div></div></div>
+        <div class="photocap"><div class="ph"><img src="shtark-ink/img/prod-disp.jpg" alt="Диспергирование" /></div><div><div class="ct">02 · Диспергирование</div><div class="cd">Измельчение пигмента, контроль размера частиц лазером.</div></div></div>
+        <div class="photocap"><div class="ph"><img src="shtark-ink/img/prod-color.jpg" alt="Колеровка" /></div><div><div class="ct">03 · Колеровка</div><div class="cd">Спектрофотометр X-Rite, ΔE&nbsp;&lt;&nbsp;1,5 к&nbsp;эталону.</div></div></div>
+        <div class="photocap"><div class="ph"><img src="shtark-ink/img/prod-ship.jpg" alt="Фасовка и отгрузка" /></div><div><div class="ct">04 · Фасовка и&nbsp;отгрузка</div><div class="cd">Вёдра 20/25&nbsp;кг, бочки 200&nbsp;кг, паспорт качества.</div></div></div>
+      </div>
+      <div class="foot"><span>Высокопроизводительное оборудование · полуавтоматический режим</span><span>Коммерческое предложение · стр. 04 / 16</span></div>
+    </div>
+  </section>
+
+  <!-- 5 LAB -->
+  <section class="slide">
+    <div class="pad">
+      <div class="tag">Лаборатория и&nbsp;контроль качества</div><span class="num" style="color:var(--soft);">05 / 16</span>
+      <div style="display:grid;grid-template-columns:1.05fr .95fr;gap:46px;height:540px;align-items:center;margin-top:14px;">
+        <div>
+          <h1 class="h1" style="font-size:38px;margin:0 0 20px;">Цвет под&nbsp;контролем<br>на&nbsp;каждой партии</h1>
+          <div class="feat"><div class="ico">ΔE</div><div><div class="ft">Колориметрия X-Rite eXact</div><div class="fd">Фиксируем цветовое отличие каждой партии; по&nbsp;нормам ΔE&nbsp;не&nbsp;превышает&nbsp;1,5.</div></div></div>
+          <div class="feat"><div class="ico">μm</div><div><div class="ft">Лазерный дифрактометр</div><div class="fd">Контроль распределения частиц пигмента&nbsp;— насыщенность и&nbsp;прозрачность.</div></div></div>
+          <div class="feat"><div class="ico">R&amp;D</div><div><div class="ft">Разработка под&nbsp;клиента</div><div class="fd">Подбор рецептур и&nbsp;аналогов импортных красок, образцы&nbsp;— от&nbsp;5&nbsp;дней.</div></div></div>
+        </div>
+        <div style="height:480px;border-radius:12px;overflow:hidden;"><img class="imgcover" src="shtark-ink/img/lab-photo.png" alt="Лаборатория" /></div>
+      </div>
+      <div class="foot"><span>shtarkink.com</span><span>Коммерческое предложение · стр. 05 / 16</span></div>
+    </div>
+  </section>
+
+  <!-- 6 PRODUCTS OVERVIEW -->
+  <section class="slide slide--dark">
+    <div class="dots"></div>
+    <div class="pad">
+      <div class="tag tag--y">Продукция — обзор</div><span class="num">06 / 16</span>
+      <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:42px;height:560px;align-items:center;">
+        <div>
+          <h1 class="h1" style="font-size:38px;margin:0 0 22px;">6 серий красок<br>и&nbsp;лаков</h1>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div class="prodcard" style="background:var(--ink2);border-top:4px solid var(--cyan);padding:16px 18px;"><div style="font-family:var(--fd);font-weight:700;font-size:20px;color:#fff;">SURF</div><div style="font-size:12.5px;color:var(--grey);margin-top:4px;">Поверхностная печать</div></div>
+            <div class="prodcard" style="background:var(--ink2);border-top:4px solid var(--mag);padding:16px 18px;"><div style="font-family:var(--fd);font-weight:700;font-size:20px;color:#fff;">UNI</div><div style="font-size:12.5px;color:var(--grey);margin-top:4px;">Универсальная</div></div>
+            <div class="prodcard" style="background:var(--ink2);border-top:4px solid var(--yel);padding:16px 18px;"><div style="font-family:var(--fd);font-weight:700;font-size:20px;color:#fff;">LAM</div><div style="font-size:12.5px;color:var(--grey);margin-top:4px;">Межслойная, высокопигментированная</div></div>
+            <div class="prodcard" style="background:var(--ink2);border-top:4px solid var(--red);padding:16px 18px;"><div style="font-family:var(--fd);font-weight:700;font-size:20px;color:#fff;">TOP</div><div style="font-size:12.5px;color:var(--grey);margin-top:4px;">Премиальная межслойная</div></div>
+            <div class="prodcard" style="background:var(--ink2);border-top:4px solid #fff;padding:16px 18px;"><div style="font-family:var(--fd);font-weight:700;font-size:20px;color:#fff;">PC BASE</div><div style="font-size:12.5px;color:var(--grey);margin-top:4px;">Монопигментные концентраты</div></div>
+            <div class="prodcard" style="background:var(--ink2);border-top:4px solid var(--cyan);padding:16px 18px;"><div style="font-family:var(--fd);font-weight:700;font-size:20px;color:#fff;">LAQUER</div><div style="font-size:12.5px;color:var(--grey);margin-top:4px;">Технологические лаки</div></div>
+          </div>
+        </div>
+        <div style="height:480px;border-radius:12px;overflow:hidden;"><img class="imgcover" src="shtark-ink/img/cat-surface-real.webp" alt="Продукция" /></div>
+      </div>
+      <div class="foot"><span>Спирторастворимые краски и лаки для флексо- и ротогравюрной печати</span><span>Коммерческое предложение · стр. 06 / 16</span></div>
+    </div>
+  </section>
+
+  <!-- 7 SURF -->
+  <section class="slide">
+    <div class="pad">
+      <div class="tag">Серия SURF · поверхностная печать</div><span class="num" style="color:var(--soft);">07 / 16</span>
+      <div class="ser">
+        <div class="ser__img"><span class="ser__badge">SURF</span><img src="shtark-ink/img/cat-surface-real.webp" alt="Серия SURF" /></div>
+        <div>
+          <h1 class="h1" style="font-size:34px;margin:0 0 10px;">Краски для&nbsp;поверхностной печати</h1>
+          <p class="lead" style="font-size:15px;">Органорастворимая серия на&nbsp;нитроцеллюлозно-полиуретановой основе для&nbsp;поверхностной печати по&nbsp;широкому спектру материалов гибкой упаковки.</p>
+          <div class="spec">
+            <div class="spec__row"><div class="spec__k">Основа</div><div class="spec__v">Нитроцеллюлозно-полиуретановая</div></div>
+            <div class="spec__row"><div class="spec__k">Тип печати</div><div class="spec__v">Флексографический · ротогравюрный</div></div>
+            <div class="spec__row"><div class="spec__k">Применение</div><div class="spec__v">Поверхностная печать по&nbsp;гибкой упаковке</div></div>
+            <div class="spec__row"><div class="spec__k">Вязкость</div><div class="spec__v">Поставка <b>30&nbsp;±&nbsp;5&nbsp;сек</b>, рабочая <b>18–22&nbsp;сек</b> (ВЗ-4, 20°С)</div></div>
+            <div class="spec__row"><div class="spec__k">Фасовка</div><div class="spec__v">Вёдра 20/25&nbsp;кг · бочки 200&nbsp;кг</div></div>
+          </div>
+          <div style="margin-top:14px;"><span class="pill">LDPE / HDPE</span><span class="pill">OPP / BOPP / CPP</span><span class="pill">металлизир. плёнки</span></div>
+        </div>
+      </div>
+      <div class="foot"><span>shtarkink.com · техническая информация (TDS) — по запросу</span><span>Коммерческое предложение · стр. 07 / 16</span></div>
+    </div>
+  </section>
+
+  <!-- 8 UNI -->
+  <section class="slide">
+    <div class="pad">
+      <div class="tag">Серия UNI · универсальная</div><span class="num" style="color:var(--soft);">08 / 16</span>
+      <div class="ser">
+        <div class="ser__img"><span class="ser__badge">UNI</span><img src="shtark-ink/img/banner-1.jpg" alt="Серия UNI" /></div>
+        <div>
+          <h1 class="h1" style="font-size:34px;margin:0 0 10px;">Универсальная «рабочая лошадка»</h1>
+          <p class="lead" style="font-size:15px;">Универсальная органорастворимая серия на&nbsp;НЦ-ПУ основе для&nbsp;межслойной и&nbsp;поверхностной печати. Стабильный цвет, «чистая» печать растра и&nbsp;отличные ламинационные характеристики.</p>
+          <div class="spec">
+            <div class="spec__row"><div class="spec__k">Основа</div><div class="spec__v">Нитроцеллюлозно-полиуретановая, универсальная</div></div>
+            <div class="spec__row"><div class="spec__k">Применение</div><div class="spec__v">Межслойная и&nbsp;поверхностная печать</div></div>
+            <div class="spec__row"><div class="spec__k">Особенности</div><div class="spec__v">ΔE&nbsp;&lt;&nbsp;1,5 · стабильный растр в&nbsp;длинном тираже · ламинация BOPP и&nbsp;хим. обработанного PET</div></div>
+            <div class="spec__row"><div class="spec__k">Белила</div><div class="spec__v">Высокая укрывистость, OP&nbsp;&gt;&nbsp;50&nbsp;%</div></div>
+            <div class="spec__row"><div class="spec__k">Фасовка</div><div class="spec__v">Вёдра 20/25&nbsp;кг · бочки 200&nbsp;кг</div></div>
+          </div>
+          <div style="margin-top:14px;"><span class="pill">межслойная</span><span class="pill">поверхностная</span><span class="pill">ламинация</span></div>
+        </div>
+      </div>
+      <div class="foot"><span>Подробно о&nbsp;разработке UNI — статья в&nbsp;разделе «Новости»</span><span>Коммерческое предложение · стр. 08 / 16</span></div>
+    </div>
+  </section>
+
+  <!-- 9 LAM -->
+  <section class="slide">
+    <div class="pad">
+      <div class="tag">Серия LAM · межслойная</div><span class="num" style="color:var(--soft);">09 / 16</span>
+      <div class="ser">
+        <div class="ser__img"><span class="ser__badge">LAM</span><img src="shtark-ink/img/cat-lamfit-real.webp" alt="Серия LAM" /></div>
+        <div>
+          <h1 class="h1" style="font-size:34px;margin:0 0 10px;">Высокопигментированная<br>для&nbsp;межслойной печати</h1>
+          <p class="lead" style="font-size:15px;">Органорастворимая высокопигментированная серия на&nbsp;основе NC/PU связующего для&nbsp;межслойной печати, в&nbsp;т.&nbsp;ч. с&nbsp;последующей стерилизацией и&nbsp;пастеризацией.</p>
+          <div class="spec">
+            <div class="spec__row"><div class="spec__k">Основа</div><div class="spec__v">NC/PU связующее, высокая пигментация</div></div>
+            <div class="spec__row"><div class="spec__k">Тип печати</div><div class="spec__v">Флексографический (LAM&nbsp;F) · ротогравюрный (LAM&nbsp;R)</div></div>
+            <div class="spec__row"><div class="spec__k">Применение</div><div class="spec__v">Межслойная печать, 2–3-слойные комбинированные материалы</div></div>
+            <div class="spec__row"><div class="spec__k">Свойства</div><div class="spec__v">Высокая адгезия, термостойкость, сила ламинационного соединения</div></div>
+            <div class="spec__row"><div class="spec__k">Вязкость</div><div class="spec__v">Поставка <b>30&nbsp;±&nbsp;5&nbsp;сек</b>, рабочая <b>18–22&nbsp;сек</b> (ВЗ-4)</div></div>
+          </div>
+          <div style="margin-top:14px;"><span class="pill">стерилизация</span><span class="pill">пастеризация</span><span class="pill">фольга / PET</span></div>
+        </div>
+      </div>
+      <div class="foot"><span>shtarkink.com · техническая информация (TDS) — по запросу</span><span>Коммерческое предложение · стр. 09 / 16</span></div>
+    </div>
+  </section>
+
+  <!-- 10 TOP -->
+  <section class="slide">
+    <div class="pad">
+      <div class="tag">Серия TOP · премиальная межслойная</div><span class="num" style="color:var(--soft);">10 / 16</span>
+      <div class="ser">
+        <div class="ser__img"><span class="ser__badge">TOP</span><img src="shtark-ink/img/cat-top.jpg" alt="Серия TOP" /></div>
+        <div>
+          <h1 class="h1" style="font-size:34px;margin:0 0 10px;">Премиальная серия<br>для&nbsp;межслойной печати</h1>
+          <p class="lead" style="font-size:15px;">Органорастворимая высокопигментированная серия на&nbsp;основе модифицированного полиуретанового связующего для&nbsp;межслойной печати по&nbsp;широкому спектру материалов.</p>
+          <div class="spec">
+            <div class="spec__row"><div class="spec__k">Основа</div><div class="spec__v">Модифицированное ПУ связующее, высокая пигментация</div></div>
+            <div class="spec__row"><div class="spec__k">Тип печати</div><div class="spec__v">Флексографический · ротогравюрный</div></div>
+            <div class="spec__row"><div class="spec__k">Применение</div><div class="spec__v">Премиальная межслойная печать, прочные ламинационные структуры</div></div>
+            <div class="spec__row"><div class="spec__k">Свойства</div><div class="spec__v">Высокая адгезия и&nbsp;термостойкость, низкий остаточный растворитель</div></div>
+            <div class="spec__row"><div class="spec__k">Вязкость</div><div class="spec__v">Поставка <b>30&nbsp;±&nbsp;5&nbsp;сек</b>, рабочая <b>18–22&nbsp;сек</b> (ВЗ-4)</div></div>
+          </div>
+          <div style="margin-top:14px;"><span class="pill">высокая плотность</span><span class="pill">ламинация</span><span class="pill">термостойкость</span></div>
+        </div>
+      </div>
+      <div class="foot"><span>shtarkink.com · техническая информация (TDS) — по запросу</span><span>Коммерческое предложение · стр. 10 / 16</span></div>
+    </div>
+  </section>
+
+  <!-- 11 PC BASE -->
+  <section class="slide">
+    <div class="pad">
+      <div class="tag">Серия PC BASE · концентраты</div><span class="num" style="color:var(--soft);">11 / 16</span>
+      <div class="ser">
+        <div class="ser__img"><span class="ser__badge">PC BASE</span><img src="shtark-ink/img/cat-pcbase.jpg" alt="Серия PC BASE" /></div>
+        <div>
+          <h1 class="h1" style="font-size:34px;margin:0 0 10px;">Монопигментные<br>концентраты</h1>
+          <p class="lead" style="font-size:15px;">Серия органорастворимых монопигментных концентратов на&nbsp;основе нитроцеллюлозы и&nbsp;комплекса органических растворителей. Для&nbsp;составления и&nbsp;коррекции рецептур красок.</p>
+          <div class="spec">
+            <div class="spec__row"><div class="spec__k">Основа</div><div class="spec__v">Нитроцеллюлоза + комплекс растворителей</div></div>
+            <div class="spec__row"><div class="spec__k">Назначение</div><div class="spec__v">Составление и&nbsp;коррекция рецептур, колеровка</div></div>
+            <div class="spec__row"><div class="spec__k">Цвета</div><div class="spec__v">Триада CMYK и&nbsp;смесевые · стабильные реологические характеристики</div></div>
+            <div class="spec__row"><div class="spec__k">Преимущество</div><div class="spec__v">Максимальный ввод пигмента, минимальная тиксотропность</div></div>
+            <div class="spec__row"><div class="spec__k">Фасовка</div><div class="spec__v">Вёдра 20/25&nbsp;кг · бочки 200&nbsp;кг</div></div>
+          </div>
+          <div style="margin-top:14px;"><span class="pill">CMYK</span><span class="pill">смесевые цвета</span><span class="pill">колеровка</span></div>
+        </div>
+      </div>
+      <div class="foot"><span>shtarkink.com · техническая информация (TDS) — по запросу</span><span>Коммерческое предложение · стр. 11 / 16</span></div>
+    </div>
+  </section>
+
+  <!-- 12 LAQUER -->
+  <section class="slide">
+    <div class="pad">
+      <div class="tag">Серия LAQUER · технологические лаки</div><span class="num" style="color:var(--soft);">12 / 16</span>
+      <div class="ser">
+        <div class="ser__img"><span class="ser__badge">LAQUER</span><img src="shtark-ink/img/cat-laquer-real.webp" alt="Серия LAQUER" /></div>
+        <div>
+          <h1 class="h1" style="font-size:34px;margin:0 0 10px;">Лаки для&nbsp;финиш-секций</h1>
+          <p class="lead" style="font-size:15px;">Матовые и&nbsp;глянцевые органорастворимые лаки для&nbsp;финиш-секций: защита оттиска, тактильная поверхность, сохранение печатных свойств.</p>
+          <div class="spec">
+            <div class="spec__row"><div class="spec__k">Технический лак LAM</div><div class="spec__v">Для&nbsp;смешения красок и&nbsp;комбинированных материалов, ввод 25–35&nbsp;%</div></div>
+            <div class="spec__row"><div class="spec__k">Лак EXTENDER НЦ-90</div><div class="spec__v">Лак-осветлитель, снижение насыщенности без&nbsp;потери печатных свойств</div></div>
+            <div class="spec__row"><div class="spec__k">Матовый TOP-MATT</div><div class="spec__v">Двухкомпонентный (2K), глубоко-матовая поверхность, высокая стойкость</div></div>
+            <div class="spec__row"><div class="spec__k">Применение</div><div class="spec__v">Поверхностная и&nbsp;ротогравюрная печать по&nbsp;гибкой упаковке</div></div>
+          </div>
+          <div style="margin-top:14px;"><span class="pill">матовый</span><span class="pill">глянцевый</span><span class="pill">2K отвердитель</span></div>
+        </div>
+      </div>
+      <div class="foot"><span>shtarkink.com · техническая информация (TDS) — по запросу</span><span>Коммерческое предложение · стр. 12 / 16</span></div>
+    </div>
+  </section>
+
+  <!-- 13 R&D -->
+  <section class="slide slide--dark">
+    <div class="dots"></div>
+    <div class="pad">
+      <div class="tag tag--y">Научный подход</div><span class="num">13 / 16</span>
+      <div style="display:grid;grid-template-columns:1.15fr .85fr;gap:46px;height:540px;align-items:center;margin-top:8px;">
+        <div>
+          <h1 class="h1" style="font-size:34px;margin:0 0 20px;">Как мы&nbsp;улучшали<br>серию UNI</h1>
+          <div class="feat"><div class="ico">01</div><div><div class="ft">Высокая пигментация</div><div class="fd">Концентраты с&nbsp;максимальным вводом пигмента и&nbsp;узким распределением частиц&nbsp;— ΔE&nbsp;&lt;&nbsp;1,5.</div></div></div>
+          <div class="feat"><div class="ico">02</div><div><div class="ft">«Чистая» печать растра</div><div class="fd">Сбалансированная смесь растворителей: стабильный растр на&nbsp;тираже 120&nbsp;000&nbsp;п.м.</div></div></div>
+          <div class="feat"><div class="ico">03</div><div><div class="ft">Ламинация и&nbsp;белила</div><div class="fd">Собственные ПУ-смолы для&nbsp;прочных структур; белила с&nbsp;OP&nbsp;&gt;&nbsp;50&nbsp;%.</div></div></div>
+        </div>
+        <div style="height:430px;border-radius:12px;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center;"><img src="shtark-ink/img/uni-cont-img_p0_4.png" alt="Распределение частиц" style="width:100%;height:100%;object-fit:cover;" /></div>
+      </div>
+      <div class="foot"><span>Полная статья — раздел «Новости» на&nbsp;сайте</span><span>Коммерческое предложение · стр. 13 / 16</span></div>
+    </div>
+  </section>
+
+  <!-- 14 TEAM -->
+  <section class="slide">
+    <div class="pad">
+      <div class="tag">Команда и&nbsp;сервис</div><span class="num" style="color:var(--soft);">14 / 16</span>
+      <h1 class="h1" style="font-size:36px;margin:12px 0 18px;">Люди за&nbsp;каждым килограммом</h1>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;">
+        <div class="person"><div class="ph"><img src="shtark-ink/img/face-ceo.png" alt="Екатерина" style="object-position:center 30%;" /></div><div class="pb"><div class="pn">Екатерина</div><div class="pr">Исп. директор · ВЭД</div></div></div>
+        <div class="person"><div class="ph"><img src="shtark-ink/img/face-maxim.png" alt="Максим" /></div><div class="pb"><div class="pn">Максим</div><div class="pr">Инженер техподдержки</div></div></div>
+        <div class="person"><div class="ph"><img src="shtark-ink/img/face-vadim.png" alt="Вадим" /></div><div class="pb"><div class="pn">Вадим</div><div class="pr">Начальник производства</div></div></div>
+        <div class="person"><div class="ph"><img src="shtark-ink/img/face-oksana.png" alt="Оксана" /></div><div class="pb"><div class="pn">Оксана</div><div class="pr">Снабжение и&nbsp;ВЭД</div></div></div>
+        <div class="person"><div class="ph"><img src="shtark-ink/img/face-tatiana.png" alt="Татьяна" style="object-position:center 22%;" /></div><div class="pb"><div class="pn">Татьяна</div><div class="pr">Логистика и&nbsp;ВЭД</div></div></div>
+      </div>
+      <p class="lead" style="font-size:16px;margin-top:24px;max-width:900px;">Вы&nbsp;работаете не&nbsp;с&nbsp;«колл-центром», а&nbsp;с&nbsp;людьми, которые отвечают за&nbsp;продукт. Технолог выезжает на&nbsp;производство, настраивает краску на&nbsp;станке и&nbsp;ведёт вас на&nbsp;всех этапах.</p>
+      <div class="foot"><span>Производство · колористика · техсервис — на связи пн–пт</span><span>Коммерческое предложение · стр. 14 / 16</span></div>
+    </div>
+  </section>
+
+  <!-- 15 HOW TO ORDER -->
+  <section class="slide slide--dark">
+    <div class="dots"></div>
+    <div class="pad">
+      <div class="tag tag--y">Как заказать</div><span class="num">15 / 16</span>
+      <h1 class="h1" style="font-size:38px;margin:12px 0 22px;">Условия работы и&nbsp;поставки</h1>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+        <div class="prodcard" style="background:var(--ink2);border-top:4px solid var(--yel);padding:20px 22px;"><div style="font-family:var(--fd);font-weight:700;font-size:19px;color:#fff;">Оплата</div><div style="font-size:13.5px;color:var(--grey);line-height:1.5;margin-top:8px;">Безналичный расчёт по&nbsp;счёту. Договор поставки с&nbsp;юрлицами и&nbsp;ИП. Счёт-фактура и&nbsp;УПД, работа с&nbsp;НДС.</div></div>
+        <div class="prodcard" style="background:var(--ink2);border-top:4px solid var(--cyan);padding:20px 22px;"><div style="font-family:var(--fd);font-weight:700;font-size:19px;color:#fff;">Доставка</div><div style="font-size:13.5px;color:var(--grey);line-height:1.5;margin-top:8px;">Самовывоз со&nbsp;склада в&nbsp;Санкт-Петербурге или&nbsp;отгрузка ТК по&nbsp;РФ. Сроки&nbsp;— от&nbsp;1&nbsp;дня со&nbsp;склада.</div></div>
+        <div class="prodcard" style="background:var(--ink2);border-top:4px solid var(--mag);padding:20px 22px;"><div style="font-family:var(--fd);font-weight:700;font-size:19px;color:#fff;">Гарантия и&nbsp;сервис</div><div style="font-size:13.5px;color:var(--grey);line-height:1.5;margin-top:8px;">Паспорт качества на&nbsp;каждую партию, гарантийный срок 12&nbsp;мес, выезд технолога, бесплатные образцы.</div></div>
+      </div>
+      <div style="display:flex;gap:14px;margin-top:22px;">
+        <div class="valcard" style="flex:1;background:var(--ink2);border:1px solid rgba(255,255,255,.08);border-top:5px solid var(--yel);"><div class="vt" style="color:#fff;">Бесплатные образцы</div><div class="vd" style="color:var(--grey);">Под&nbsp;ваш материал и&nbsp;оборудование — по&nbsp;запросу.</div></div>
+        <div class="valcard" style="flex:1;background:var(--ink2);border:1px solid rgba(255,255,255,.08);border-top:5px solid var(--yel);"><div class="vt" style="color:#fff;">Разработка под&nbsp;клиента</div><div class="vd" style="color:var(--grey);">Индивидуальные рецептуры и&nbsp;аналоги&nbsp;— от&nbsp;5&nbsp;дней.</div></div>
+        <div class="valcard" style="flex:1;background:var(--ink2);border:1px solid rgba(255,255,255,.08);border-top:5px solid var(--yel);"><div class="vt" style="color:#fff;">Pantone matching</div><div class="vd" style="color:var(--grey);">Точное попадание в&nbsp;эталон с&nbsp;учётом анилокса.</div></div>
+      </div>
+      <div class="foot"><span>Отгрузка только юрлицам и ИП по договору поставки</span><span>Коммерческое предложение · стр. 15 / 16</span></div>
+    </div>
+  </section>
+
+  <!-- 16 CONTACTS -->
+  <section class="slide slide--dark">
+    <div class="split-photo"><img src="shtark-ink/img/banner-6.jpg" alt="Shtark INK" /></div>
+    <div class="dots"></div>
+    <div class="pad" style="display:flex;flex-direction:column;width:62%;">
+      <div class="cmyk"><i></i><i></i><i></i><i></i></div>
+      <div class="logo" style="margin-top:16px;">Shtark<small>INK</small></div>
+      <div style="margin-top:auto;">
+        <div class="tag tag--y">Начнём сотрудничество</div>
+        <h1 class="h1" style="font-size:48px;margin:18px 0 26px;">Запросите образцы<br>под&nbsp;ваш материал</h1>
+        <div class="ctaBar">Связаться с&nbsp;отделом продаж&nbsp;→</div>
+      </div>
+      <div style="margin-top:auto;display:flex;gap:40px;font-family:var(--fm);font-size:14px;color:#C6CAD2;">
+        <span><span style="color:var(--grey);">ТЕЛЕФОН</span><br>+7&nbsp;911&nbsp;037&nbsp;48&nbsp;55</span>
+        <span><span style="color:var(--grey);">E-MAIL</span><br>info@shtarkink.com</span>
+        <span><span style="color:var(--grey);">САЙТ</span><br>shtarkink.com</span>
+        <span><span style="color:var(--grey);">СКЛАД</span><br>Санкт-Петербург</span>
+      </div>
+      <div class="foot" style="border:0;"><span>ООО «Штарк Инк» · ИНН 7802677495</span><span>Коммерческое предложение · стр. 16 / 16</span></div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+<meta name="theme-color" content="#0E0F12" />
+
+<title>Спирторастворимые краски серии UNI · Shtark INK</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Статья из журнала «Флексо Плюс» №4-2025: спирторастворимые краски серии UNI — тривиальное название, оригинальные свойства. Автор — Александр Лавров, генеральный директор «Штарк Групп»." />
+<meta name="keywords" content="серия UNI, статья о разработке, спирторастворимые краски, пигментация, ламинационные свойства, Shtark INK" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="shtark-ink/styles.css?v=4" />
+
+<style>
+  .art-top { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 2px solid var(--ink); box-shadow: 0 1px 0 rgba(15,17,21,.06), 0 8px 24px -16px rgba(15,17,21,.18); }
+  .art-top__row { display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 24px; }
+  .art-top__logo img { height: 44px; width: auto; display: block; }
+  .art-top__back { font-family: var(--font-body); font-weight: 600; font-size: 14px; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; border-bottom: 2px solid transparent; padding: 4px 0; transition: border-color .14s; }
+  .art-top__back:hover { border-bottom-color: var(--accent); }
+
+  .art-wrap { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+
+  .art-hero { padding: 64px 0 36px; }
+  .art-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+  .art-cat { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--ink); background: var(--accent); padding: 6px 11px; border-radius: 999px; }
+  .art-src { font-family: var(--font-mono); font-size: 11px; color: var(--ink-soft); letter-spacing: 0.4px; }
+  .art-title { font-family: var(--font-display); font-size: 46px; font-weight: 700; letter-spacing: -1.4px; line-height: 1.06; margin: 0 0 18px; text-wrap: balance; }
+  .art-author { display: flex; align-items: center; gap: 14px; padding-top: 18px; border-top: 1px solid var(--line); }
+  .art-author__avatar { width: 112px; height: 112px; border-radius: 50%; object-fit: cover; object-position: center top; flex-shrink: 0; border: 2px solid var(--accent); }
+  .art-author__name { font-weight: 600; font-size: 15px; color: var(--ink); }
+  .art-author__role { font-size: 13px; color: var(--ink-soft); }
+
+  .art-figure { margin: 0 0 40px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--line); background: var(--bg-dark); }
+  .art-figure img { width: 100%; display: block; aspect-ratio: 16/8; object-fit: cover; }
+  .art-figure__cap { font-family: var(--font-mono); font-size: 11px; color: var(--ink-soft); padding: 12px 16px; background: #fff; }
+
+  .art-body { padding-bottom: 40px; }
+  .art-lead { font-size: 20px; line-height: 1.55; color: var(--ink); font-weight: 500; margin: 0 0 32px; padding-left: 22px; border-left: 3px solid var(--accent); }
+  .art-body h2 { font-family: var(--font-display); font-size: 28px; font-weight: 700; letter-spacing: -0.6px; line-height: 1.15; margin: 44px 0 16px; }
+  .art-body p { font-size: 17px; line-height: 1.7; color: var(--ink-mid); margin: 0 0 20px; }
+  .art-body strong { color: var(--ink); font-weight: 600; }
+  .art-body ul { margin: 0 0 22px; padding: 0; list-style: none; }
+  .art-body ul li { position: relative; padding: 8px 0 8px 26px; font-size: 17px; line-height: 1.6; color: var(--ink-mid); }
+  .art-body ul li::before { content: '◆'; position: absolute; left: 0; top: 8px; color: var(--accent-deep); font-size: 13px; }
+
+  .art-pull { background: var(--bg-tint); border-radius: var(--radius-lg); padding: 28px 32px; margin: 32px 0; font-family: var(--font-display); font-size: 21px; font-weight: 500; line-height: 1.4; letter-spacing: -0.3px; color: var(--ink); }
+
+  .art-data { border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; margin: 8px 0 32px; }
+  .art-data__head { background: var(--ink); color: #fff; font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; padding: 13px 18px; }
+  .art-data__row { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 10px; padding: 12px 18px; border-bottom: 1px solid var(--line); font-family: var(--font-mono); font-size: 12px; }
+  .art-data__row:last-child { border-bottom: 0; }
+  .art-data__row:nth-child(even) { background: var(--bg-soft); }
+  .art-data__row b { color: var(--ink); display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
+  .art-data__sw { width: 12px; height: 12px; border-radius: 3px; border: 1px solid rgba(0,0,0,.12); }
+  .art-data__k { color: var(--ink-soft); }
+
+  .art-graphs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 8px 0 16px; }
+  .art-graph { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #fff; }
+  .art-graph img { width: 100%; display: block; }
+  .art-graph__cap { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; color: var(--ink); padding: 10px 14px; border-top: 1px solid var(--line); font-weight: 600; }
+  .art-graph__sw { width: 12px; height: 12px; border-radius: 3px; border: 1px solid rgba(0,0,0,.12); }
+  .art-graph__ci { color: var(--ink-soft); font-weight: 400; margin-left: auto; }
+  @media (max-width: 560px) { .art-graphs { grid-template-columns: 1fr; } }
+
+  .art-foot { border-top: 1px solid var(--line); padding: 28px 0 80px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .art-foot__note { font-size: 14px; color: var(--ink-soft); max-width: 480px; line-height: 1.5; }
+
+  @media (max-width: 640px) {
+    .art-title { font-size: 32px; }
+    .art-lead { font-size: 18px; }
+    .art-body p, .art-body ul li { font-size: 16px; }
+    .art-data__row { grid-template-columns: 1.4fr 1fr; }
+    .art-top__back span.full { display: none; }
+  }
+</style>
+<style>.art-ulink{color:var(--accent-deep);font-weight:600;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;}.art-ulink:hover{color:var(--accent);}</style>
+<style id="si-yellow-back">.top__back,.tech-top__back,.news-top__back,.art-top__back,.sm-top__back{background:#F5C518!important;color:#0F1115!important;border:0!important;border-bottom:0!important;border-radius:8px!important;padding:10px 18px!important;font-weight:700!important;}.top__back:hover,.tech-top__back:hover,.news-top__back:hover,.art-top__back:hover,.sm-top__back:hover{background:#E0AF00!important;}@media(max-width:640px){.top__back,.tech-top__back,.news-top__back,.art-top__back,.sm-top__back{margin-right:64px!important;}}</style>
+
+<link rel="canonical" href="https://shtarkink.com/news-uni.html" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<meta name="theme-color" content="#0F1115" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Shtark INK" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:title" content="Спирторастворимые краски серии UNI · Shtark INK" />
+<meta property="og:description" content="Статья из журнала «Флексо Плюс» №4-2025: спирторастворимые краски серии UNI — тривиальное название, оригинальные свойства. Автор — Александр Лавров, генеральный директор «Штарк Групп»." />
+<meta property="og:url" content="https://shtarkink.com/news-uni.html" />
+<meta property="og:image" content="https://shtarkink.com/shtark-ink/img/hero.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Спирторастворимые краски серии UNI · Shtark INK" />
+<meta name="twitter:description" content="Статья из журнала «Флексо Плюс» №4-2025: спирторастворимые краски серии UNI — тривиальное название, оригинальные свойства. Автор — Александр Лавров, генеральный директор «Штарк Групп»." />
+<meta name="twitter:image" content="https://shtarkink.com/shtark-ink/img/hero.png" />
+</head>
+<body>
+<header class="art-top">
+  <div class="wrap art-top__row">
+    <a class="art-top__logo" href="index.html"><img src="shtark-ink/img/logo.png" alt="Shtark INK" /></a>
+    <a class="art-top__back" href="news.html" style="background:var(--accent);color:var(--ink);padding:10px 18px;border-radius:8px;border-bottom:0;font-weight:700">← <span class="full">Ко&nbsp;всем </span>новостям</a>
+  </div>
+</header>
+
+<main>
+  <div class="art-wrap">
+    <section class="art-hero">
+      <div class="art-meta">
+        <span class="art-cat">Статья · Технологии</span>
+        <span class="art-src">Журнал «Флексо&nbsp;Плюс» №4-2025 · flexoplus.ru</span>
+      </div>
+      <h1 class="art-title">Спирторастворимые краски серии&nbsp;UNI: тривиальное название, оригинальные свойства</h1>
+      <div class="art-author">
+        <img class="art-author__avatar" src="shtark-ink/img/uni-art-hero.png" alt="Александр Лавров" />
+        <div>
+          <div class="art-author__name">Александр Лавров</div>
+          <div class="art-author__role">Генеральный директор компании «Штарк Групп»</div>
+        </div>
+      </div>
+    </section>
+
+    <figure class="art-figure">
+      <img src="shtark-ink/img/banner-5.jpg" alt="Спирторастворимые краски серии UNI — Shtark INK" />
+      <figcaption class="art-figure__cap"><a href="uni-tech.html" class="art-ulink">Серия UNI</a> — универсальные спирторастворимые краски на нитроцеллюлозно-полиуретановой основе</figcaption>
+    </figure>
+
+    <section class="art-body">
+      <p class="art-lead">«…Универсальная спирторастворимая серия красок на нитроцеллюлозно-полиуретановой основе, рекомендованная для межслойной и поверхностной печати на широком спектре запечатываемых материалов…» — это «рабочая лошадка» большинства средних и крупных производителей рулонной гибкой упаковки, печатающих флексографским способом.</p>
+
+      <p>С использованием данной серии красок производятся комбинированные материалы, применяемые для упаковки бакалейной продукции, сыпучих и молочных продуктов (сырки, творог, творожная масса), кондитерских изделий, замороженных продуктов и снеков. Ассортимент запечатываемых материалов и ламинационных структур, произведённых с использованием бессольвентной или сольвентной ламинации, включает сочетания плёнок БОПП&nbsp;+&nbsp;БОПП, БОПП&nbsp;+&nbsp;КАСТ&nbsp;БОПП, БОПП&nbsp;+&nbsp;ПВД, БОПП&nbsp;+&nbsp;БОППмет, БОПП&nbsp;+&nbsp;БОППмет&nbsp;+&nbsp;ПВД.</p>
+
+      <p>Данная серия красок есть в ассортименте всех производителей и поставщиков спирторастворимых печатных красок на территории РФ и СНГ. Мы задались вопросом: <strong>можно ли создать продукт, который по своим технико-печатным характеристикам и, что немаловажно, экономической составляющей, будет превосходить имеющиеся на рынке продукты?</strong></p>
+
+      <p>После тщательного анализа доступной технической документации аналогичных серий красок, анализа жидких образцов и сбора информации от потребителей мы обозначили характеристики, которые постарались улучшить при разработке красок <a href="uni-tech.html" class="art-ulink">серии UNI</a>, производимой компанией «Штарк Инк». Об этой работе и пойдёт речь далее.</p>
+
+      <h2>Высокая пигментация и стабильность колористических характеристик</h2>
+
+      <p>Спирторастворимые печатные краски представляют собой дисперсные системы с большим избытком свободной поверхностной энергии, что обусловливает их термодинамическую неустойчивость. Такие системы, согласно законам термодинамики, стремятся самопроизвольно прийти к состоянию с минимальным запасом свободной энергии. Эти процессы приводят к образованию агломератов частиц органических и неорганических пигментов, что влияет на колористические характеристики нанесённого покрытия.</p>
+
+      <p>Процессы образования надмолекулярных структур и электростатические взаимодействия между компонентами красочной системы приводят к тому, что готовые краски в той или иной степени обладают тиксотропностью и склонны увеличивать вязкость в процессе хранения. Изменение вязкости ведёт к различному проценту ввода растворителя для достижения печатной вязкости и, как следствие, к различным колористическим характеристикам.</p>
+
+      <p>Понимая эти проблемы, на первом этапе разработки основной упор был сделан на получение пигментных концентратов с максимальным процентом ввода пигмента, стабильными реологическими характеристиками и минимальной тиксотропностью. Это стало возможным благодаря тщательному подбору органических и неорганических пигментов и комплексу смачивающих и диспергирующих добавок.</p>
+
+      <p>Для управления процессом тонкого измельчения пигментов и обеспечения стабильного качества распределение частиц по размеру контролируется лазерным дифрактометром. Колористические характеристики проходят двухстадийный контроль, и согласно утверждённым нормам <strong>цветовое отличие не превышает 1,5&nbsp;единицы.</strong> Распределение частиц характеризуется узким диапазоном с максимальным размером, не превышающим 2&nbsp;мкм.</p>
+
+      <p style="font-family:var(--font-mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-soft);margin:32px 0 14px">Рис. 1 · Распределение частиц пигмента по размерам, мкм</p>
+      <div class="art-graphs">
+        <figure class="art-graph" style="margin:0">
+          <img src="shtark-ink/img/uni-art-img_p1_1.png" alt="Распределение частиц Cyan Blue PB 15:3" />
+          <figcaption class="art-graph__cap"><span class="art-graph__sw" style="background:#0093C7"></span>NC BASE Cyan Blue <span class="art-graph__ci">PB 15:3 · D50 0,19</span></figcaption>
+        </figure>
+        <figure class="art-graph" style="margin:0">
+          <img src="shtark-ink/img/uni-art-img_p1_2.png" alt="Распределение частиц Magenta PR 57:1" />
+          <figcaption class="art-graph__cap"><span class="art-graph__sw" style="background:#E5006D"></span>NC BASE Magenta <span class="art-graph__ci">PR 57:1 · D50 0,149</span></figcaption>
+        </figure>
+        <figure class="art-graph" style="margin:0">
+          <img src="shtark-ink/img/uni-art-img_p1_3.png" alt="Распределение частиц Yellow PY 13" />
+          <figcaption class="art-graph__cap"><span class="art-graph__sw" style="background:#F4D000"></span>NC BASE Yellow <span class="art-graph__ci">PY 13 · D50 0,138</span></figcaption>
+        </figure>
+        <figure class="art-graph" style="margin:0">
+          <img src="shtark-ink/img/uni-art-img_p1_4.png" alt="Распределение частиц Black PBI 7" />
+          <figcaption class="art-graph__cap"><span class="art-graph__sw" style="background:#1A1A1A"></span>NC BASE Black <span class="art-graph__ci">PBI 7 · D50 0,142</span></figcaption>
+        </figure>
+      </div>
+
+      <h2>Стабильная работа краски в длинном тираже. «Чистая» печать растровых элементов</h2>
+
+      <p>«Грязная» печать — один из самых распространённых дефектов, с которым сталкиваются производители гибкой упаковки. Чаще всего он проявляется в виде крупных сгустков краски, которые накапливаются на растровых элементах печатной формы, а затем хаотично переносятся на запечатываемый материал. Сюда же относятся неравномерные края растровых точек, образование красочных мостиков между растровыми элементами и непропечатка растра в 5%-ной области и ниже.</p>
+
+      <p>Все эти проблемы в основном связаны с балансом органических растворителей в составе красочной смеси. В процессе разработки <a href="uni-tech.html" class="art-ulink">серии UNI</a> особое внимание мы уделили устранению этих дефектов и определили, какими свойствами должна обладать входящая в состав смесь растворителей:</p>
+
+      <ul>
+        <li>медленная скорость высыхания, при этом «тяжёлые» растворители не должны оставаться в красочной плёнке — для предотвращения проблем на стадии ламинации;</li>
+        <li>отличная динамическая рерастворимость связующих, входящих в состав красочной смеси;</li>
+        <li>быть «стабильными», то есть обладать неизменными характеристиками в течение длительных тиражей.</li>
+      </ul>
+
+      <p>Стабильность работы краски оценивалась на изображениях растровых элементов в начале тиража и после 7&nbsp;часов печати — при длине тиража 120&nbsp;000&nbsp;погонных метров и скорости печати 250–300&nbsp;м/мин.</p>
+
+      <div class="art-pull">«Можно ли создать продукт, который по технико-печатным характеристикам и экономической составляющей будет превосходить имеющиеся на рынке? Об этой работе и пойдёт речь.»</div>
+
+      <h2>Отличные ламинационные характеристики. Расширение «универсальности»</h2>
+
+      <p>Как следует из описания <a href="uni-tech.html" class="art-ulink">серии UNI</a>, одно из основных связующих в её составе — полиуретановая смола (ПУ). Полиуретановые смолы представляют собой сложные продукты взаимодействия алифатических и/или ароматических изоцианатов с полифункциональными гидроксилсодержащими соединениями, поставляемыми в среде органических растворителей. Данные смолы обеспечивают требуемые адгезионные и ламинационные характеристики красочного слоя и определяют область применения краски.</p>
+
+      <p>Понимая, что входящие в состав ПУ-смолы определяют ключевые свойства серии, мы очень ответственно подошли к выбору этого вида сырья. В процессе тестирования мы столкнулись с тем, что часть смол не обеспечивала требуемые технические характеристики, а одобренные продукты вносили значительный вклад в себестоимость готовой продукции и делали произведённую краску неконкурентоспособной. Поэтому мы решили подойти к вопросу с другой стороны.</p>
+
+      <p>Имея партнёрские отношения с компанией «Штарк Кемикалз» — лидером рынка по производству бессольвентных и сольвентных полиуретановых клеевых систем для гибкой упаковки, — мы запустили совместный проект по разработке данных видов смол. Опираясь на их научный потенциал и высокие компетенции в области химии полиуретановых систем, в течение года нам удалось создать и внедрить в производство систему ПУ-смол, отвечающих нашим требованиям.</p>
+
+      <p><strong>Результаты превзошли все наши ожидания</strong> — краски обладали отличными технико-печатными характеристиками, а полученные ламинационные структуры на основе BOPP — превосходными показателями по расслоению. Нам удалось расширить функциональность серии и рекомендовать её для производства простых ламинационных структур на основе химически обработанного PET.</p>
+
+      <p style="font-family:var(--font-mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-soft);margin:32px 0 14px">Рис. 2 · Контроль печати растровых элементов · Y–8% · M–5,5% · K–6,5%</p>
+      <div class="art-graphs">
+        <figure class="art-graph" style="margin:0">
+          <img src="shtark-ink/img/uni-cont-img_p0_2.png" alt="Растровые элементы — начало печати" />
+          <figcaption class="art-graph__cap">Начало печати <span class="art-graph__ci">0 м.п.</span></figcaption>
+        </figure>
+        <figure class="art-graph" style="margin:0">
+          <img src="shtark-ink/img/uni-cont-img_p0_3.png" alt="Растровые элементы — конец печати" />
+          <figcaption class="art-graph__cap">Конец печати <span class="art-graph__ci">120 000 м.п. · 7 ч</span></figcaption>
+        </figure>
+      </div>
+      <p style="font-size:14px;color:var(--ink-soft);margin:0 0 32px">Стабильность работы краски <a href="uni-tech.html" class="art-ulink">серии UNI</a>: растровые элементы в начале и после 7&nbsp;часов печати (тираж 120&nbsp;000&nbsp;п.м., скорость 250–300&nbsp;м/мин) — без «грязной» печати и заплывания точки.</p>
+
+      <h2>Белая краска</h2>
+
+      <p>Проделав описанную выше работу, мы уже понимали, какую систему смол, функциональных добавок и какой баланс растворителей необходимо «заложить» в белую краску <a href="uni-tech.html" class="art-ulink">серии UNI</a>. Оставалось решить задачу по достижению кроющей способности, превышающей имеющиеся у нас образцы красок конкурентов. С этой целью мы протестировали несколько десятков образцов диоксида титана и определили требуемые марки с узким распределением частиц по размеру, что обеспечивает как высокие кроющие характеристики (<strong>OP&nbsp;&gt;&nbsp;50&nbsp;%</strong>), так и низкую абразивность.</p>
+
+      <p style="font-family:var(--font-mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-soft);margin:32px 0 14px">Рис. 3 · Распределение частиц пигмента белой краски, мкм</p>
+      <div class="art-graphs" style="grid-template-columns:1fr">
+        <figure class="art-graph" style="margin:0">
+          <img src="shtark-ink/img/uni-cont-img_p0_4.png" alt="Распределение частиц NC BASE White PW 6" />
+          <figcaption class="art-graph__cap"><span class="art-graph__sw" style="background:#FFFFFF"></span>NC BASE White <span class="art-graph__ci">PW 6 · D10 0,154 · D50 0,233 · D97 0,39</span></figcaption>
+        </figure>
+      </div>
+
+      <h2>В качестве заключения</h2>
+
+      <p>Смогли ли мы выполнить поставленную перед собой задачу? Решать вам. Бесплатные образцы красок для проведения промышленного тестирования предоставляются по запросу.</p>
+    </section>
+
+    <div class="art-foot">
+      <p class="art-foot__note">Полная версия статьи опубликована в журнале «Флексо&nbsp;Плюс» №4-2025. По вопросам тестирования <a href="uni-tech.html" class="art-ulink">серии UNI</a> на вашем оборудовании — свяжитесь с нашими технологами.</p>
+      <a href="#" onclick="siForm('contact');return false;" class="btn btn--primary btn--lg">Связаться с&nbsp;нами <span class="btn__arrow">→</span></a>
+    </div>
+  </div>
+</main>
+<a href="#" onclick="siForm('contact');return false;" class="partner-fab is-visible" aria-label="Связаться с отделом продаж и получить бесплатные образцы">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+  Связаться с отделом продаж и получить образцы
+</a>
+<script src="shtark-ink/lang.js?v=4"></script>
+<script src="shtark-ink/cookie.js"></script>
+<script src="shtark-ink/syrye-form.js"></script>
+<noscript><img src="//counter.rambler.ru/top100.cnt?pid=7751942" alt="Топ-100" style="position:absolute;left:-9999px" /></noscript>
+<script src="shtark-ink/motion.js?v=4"></script>
+</body>
+</html>

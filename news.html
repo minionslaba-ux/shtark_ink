@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+<meta name="theme-color" content="#0E0F12" />
+
+<title>Новости · Shtark INK</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Новости компании Shtark INK: новые серии красок, разработки лаборатории, события и анонсы производителя спиртовых флексокрасок." />
+<meta name="keywords" content="новости Shtark INK, флексокраски новости, разработки, импортозамещение красок, Pantone color matching" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="shtark-ink/styles.css?v=4" />
+
+<style>
+  .news-top {
+    position: sticky; top: 0; z-index: 50;
+    background: #fff; border-bottom: 2px solid var(--ink);
+    box-shadow: 0 1px 0 rgba(15,17,21,.06), 0 8px 24px -16px rgba(15,17,21,.18);
+  }
+  .news-top__row { display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 24px; }
+  .news-top__logo img { height: 44px; width: auto; display: block; }
+  .news-top__back { font-family: var(--font-body); font-weight: 600; font-size: 14px; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; padding: 4px 0; border-bottom: 2px solid transparent; transition: border-color .14s; }
+  .news-top__back:hover { border-bottom-color: var(--accent); }
+
+  .news-hero { padding: 72px 0 8px; }
+  .news-hero__tag { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 1.6px; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 14px; display: inline-flex; align-items: center; gap: 10px; }
+  .news-hero__tag::before { content: ''; width: 22px; height: 2px; background: var(--accent); }
+  .news-hero__title { font-family: var(--font-display); font-size: 56px; font-weight: 700; letter-spacing: -1.4px; line-height: 1.04; margin: 0 0 16px; }
+  .news-hero__sub { font-size: 18px; color: var(--ink-soft); max-width: 560px; margin: 0; line-height: 1.5; }
+
+  .news-list { padding: 48px 0 96px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .news-card { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; transition: transform .18s, box-shadow .18s, border-color .18s; }
+  .news-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); border-color: var(--ink-faint); }
+  .news-card__media { aspect-ratio: 16/10; background: var(--bg-dark); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .news-card__media svg { width: 64px; height: 64px; opacity: .9; }
+  .news-card__media--a { background: #0F1115; }
+  .news-card__media--b { background: #12303a; }
+  .news-card__media--c { background: #2a1430; }
+  .news-card__body { padding: 24px 24px 26px; display: flex; flex-direction: column; flex: 1; }
+  .news-card__meta { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .news-card__date { font-family: var(--font-mono); font-size: 11px; color: var(--ink-soft); letter-spacing: 0.4px; }
+  .news-card__cat { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--accent-deep); }
+  .news-card__title { font-family: var(--font-display); font-size: 21px; font-weight: 600; letter-spacing: -0.4px; line-height: 1.2; margin: 0 0 12px; }
+  .news-card__text { font-size: 14px; color: var(--ink-soft); line-height: 1.55; margin: 0 0 20px; }
+  .news-card__more { margin-top: auto; font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--ink); text-decoration: none; }
+  .news-card__more:hover { color: var(--accent-deep); }
+
+  .news-foot { border-top: 1px solid var(--line); padding: 32px 0 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .news-foot__note { font-size: 14px; color: var(--ink-soft); max-width: 560px; line-height: 1.5; }
+
+  @media (max-width: 1024px) { .news-list { grid-template-columns: 1fr 1fr; } .news-hero__title { font-size: 40px; } }
+  @media (max-width: 640px) { .news-list { grid-template-columns: 1fr; } .news-hero { padding: 48px 0 0; } .news-hero__title { font-size: 32px; } .news-top__back span.full { display: none; } }
+</style>
+<style id="si-yellow-back">.top__back,.tech-top__back,.news-top__back,.art-top__back,.sm-top__back{background:#F5C518!important;color:#0F1115!important;border:0!important;border-bottom:0!important;border-radius:8px!important;padding:10px 18px!important;font-weight:700!important;}.top__back:hover,.tech-top__back:hover,.news-top__back:hover,.art-top__back:hover,.sm-top__back:hover{background:#E0AF00!important;}@media(max-width:640px){.top__back,.tech-top__back,.news-top__back,.art-top__back,.sm-top__back{margin-right:64px!important;}}</style>
+
+<link rel="canonical" href="https://shtarkink.com/news.html" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<meta name="theme-color" content="#0F1115" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Shtark INK" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:title" content="Новости · Shtark INK" />
+<meta property="og:description" content="Новости компании Shtark INK: новые серии красок, разработки лаборатории, события и анонсы производителя спиртовых флексокрасок." />
+<meta property="og:url" content="https://shtarkink.com/news.html" />
+<meta property="og:image" content="https://shtarkink.com/shtark-ink/img/hero.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Новости · Shtark INK" />
+<meta name="twitter:description" content="Новости компании Shtark INK: новые серии красок, разработки лаборатории, события и анонсы производителя спиртовых флексокрасок." />
+<meta name="twitter:image" content="https://shtarkink.com/shtark-ink/img/hero.png" />
+</head>
+<body>
+<header class="news-top">
+  <div class="wrap news-top__row">
+    <a class="news-top__logo" href="index.html"><img src="shtark-ink/img/logo.png" alt="Shtark INK" /></a>
+    <a class="news-top__back" href="index.html">← <span class="full">Вернуться на&nbsp;</span>сайт</a>
+  </div>
+</header>
+
+<main>
+  <section class="news-hero">
+    <div class="wrap">
+      <div class="news-hero__tag">Новости компании</div>
+      <h1 class="news-hero__title">Что нового в&nbsp;Shtark&nbsp;INK</h1>
+      <p class="news-hero__sub">Анонсы новых серий, разработки лаборатории, события и&nbsp;решения для&nbsp;производителей гибкой упаковки.</p>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="news-list">
+
+      <article class="news-card">
+        <a href="news-uni.html" style="display:block;text-decoration:none;color:inherit">
+          <div class="news-card__media" style="padding:0">
+            <img src="shtark-ink/img/banner-2.jpg" alt="Спирторастворимые краски серии UNI" style="width:100%;height:100%;object-fit:cover" />
+          </div>
+        </a>
+        <div class="news-card__body">
+          <div class="news-card__meta">
+            <span class="news-card__cat">Статья · Технологии</span>
+            <span class="news-card__date">Флексо Плюс №4-2025</span>
+          </div>
+          <h2 class="news-card__title">Спирторастворимые краски серии UNI: тривиальное название, оригинальные свойства</h2>
+          <p class="news-card__text">Александр Лавров, гендиректор «Штарк Групп»&nbsp;— о&nbsp;том, как мы улучшали пигментацию, «чистую» печать растра и&nbsp;ламинационные характеристики серии UNI.</p>
+          <a class="news-card__more" href="news-uni.html">Читать статью →</a>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-card__media news-card__media--b">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 8a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-8V3"/></svg>
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__meta">
+            <span class="news-card__cat">Лаборатория</span>
+            <span class="news-card__date">28 мая 2026</span>
+          </div>
+          <h2 class="news-card__title">Расширили возможности Pantone color-matching</h2>
+          <p class="news-card__text">Новое оборудование колористики позволяет точнее попадать в&nbsp;эталон заказчика с&nbsp;учётом параметров анилокса. Срок&nbsp;подбора рецепта&nbsp;— от&nbsp;1&nbsp;дня.</p>
+          <a class="news-card__more" href="#">Читать далее →</a>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-card__media news-card__media--c">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/></svg>
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__meta">
+            <span class="news-card__cat">Производство</span>
+            <span class="news-card__date">14 мая 2026</span>
+          </div>
+          <h2 class="news-card__title">Импортозамещение: перешли на&nbsp;российское сырьё</h2>
+          <p class="news-card__text">Ключевые компоненты рецептур&nbsp;— российского происхождения. Это&nbsp;стабильные поставки и&nbsp;независимость от&nbsp;колебаний импорта для&nbsp;наших клиентов.</p>
+          <a class="news-card__more" href="#">Читать далее →</a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="news-foot">
+      <p class="news-foot__note">Хотите получать анонсы первыми? Напишите нам&nbsp;— добавим вас в&nbsp;рассылку для&nbsp;партнёров.</p>
+      <a href="#" onclick="siForm('contact');return false;" class="btn btn--primary btn--lg">Связаться с&nbsp;нами <span class="btn__arrow">→</span></a>
+    </div>
+  </section>
+</main>
+<a href="#" onclick="siForm('contact');return false;" class="partner-fab is-visible" aria-label="Связаться с отделом продаж и получить бесплатные образцы">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+  Связаться с отделом продаж и получить образцы
+</a>
+<script src="shtark-ink/lang.js?v=4"></script>
+<script src="shtark-ink/cookie.js"></script>
+<script src="shtark-ink/syrye-form.js"></script>
+<noscript><img src="//counter.rambler.ru/top100.cnt?pid=7751942" alt="Топ-100" style="position:absolute;left:-9999px" /></noscript>
+<script src="shtark-ink/motion.js?v=4"></script>
+</body>
+</html>

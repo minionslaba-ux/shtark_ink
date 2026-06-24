@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<title>Shtark INK · Презентация для дилеров</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--ink:#0E0F12;--ink2:#15171C;--red:#E2231A;--yel:#F5C518;--cyan:#00AEEF;--mag:#EC008C;--green:#1F8A5B;--grey:#9CA0AB;--soft:#6B7280;--line:#E5E7EB;--bg:#F4F5F7;--fd:'Space Grotesk','Inter',sans-serif;--fb:'Inter',system-ui,sans-serif;--fm:'JetBrains Mono',monospace;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#2a2c30;font-family:var(--fb);color:var(--ink);-webkit-font-smoothing:antialiased;}
+  .deck{display:flex;flex-direction:column;align-items:center;gap:22px;padding:34px 16px;}
+  .slide{width:1280px;height:720px;background:#fff;position:relative;overflow:hidden;box-shadow:0 24px 64px -24px rgba(0,0,0,.6);flex-shrink:0;}
+  .slide--dark{background:var(--ink);color:#fff;}
+  .dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.03) 1.5px,transparent 1.5px);background-size:24px 24px;pointer-events:none;}
+  .pad{position:absolute;inset:0;padding:60px 70px;}
+  .cmyk{display:flex;width:170px;height:10px;}
+  .cmyk i{flex:1;}.cmyk i:nth-child(1){background:var(--cyan);}.cmyk i:nth-child(2){background:var(--mag);}.cmyk i:nth-child(3){background:var(--yel);}.cmyk i:nth-child(4){background:var(--red);}
+  .logo{font-family:var(--fd);font-weight:700;font-size:32px;line-height:.9;}
+  .logo small{display:block;font-size:14px;letter-spacing:6px;font-weight:600;margin-top:2px;}
+  .tag{font-family:var(--fm);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--red);display:inline-flex;align-items:center;gap:11px;font-weight:600;}
+  .tag::before{content:'';width:24px;height:3px;background:var(--red);}
+  .tag--y{color:var(--yel);}.tag--y::before{background:var(--yel);}
+  .h1{font-family:var(--fd);font-weight:700;letter-spacing:-1.3px;line-height:1.05;}
+  .lead{font-size:18px;line-height:1.6;color:#3F4451;}.slide--dark .lead{color:#C6CAD2;}
+  .foot{position:absolute;left:70px;right:70px;bottom:38px;display:flex;justify-content:space-between;font-family:var(--fm);font-size:12px;color:var(--soft);border-top:1px solid var(--line);padding-top:13px;}
+  .slide--dark .foot{color:var(--grey);border-color:rgba(255,255,255,.1);}
+  .num{position:absolute;top:60px;right:70px;font-family:var(--fm);font-size:12px;color:var(--soft);}.slide--dark .num{color:var(--grey);}
+  img{display:block;}.imgcover{width:100%;height:100%;object-fit:cover;}
+  .split-photo{position:absolute;top:0;right:0;width:46%;height:100%;}
+  .split-photo img{width:100%;height:100%;object-fit:cover;}
+  .split-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--ink),rgba(14,15,18,0) 55%);}
+  .stat{background:var(--ink2);padding:18px 22px;}.stat b{font-family:var(--fd);font-size:38px;font-weight:700;display:block;color:var(--yel);}.stat span{font-size:13px;color:var(--grey);}
+  .valcard{background:#fff;border:1px solid var(--line);border-top:5px solid var(--yel);padding:20px 22px;}
+  .valcard .vt{font-family:var(--fd);font-weight:700;font-size:20px;}
+  .valcard .vd{font-size:13.5px;color:var(--soft);line-height:1.45;margin-top:6px;}
+  .photocap{display:flex;flex-direction:column;gap:11px;height:100%;}
+  .photocap .ph{flex:1;border-radius:10px;overflow:hidden;}.photocap .ph img{width:100%;height:100%;object-fit:cover;}
+  .photocap .ct{font-family:var(--fd);font-weight:700;font-size:18px;}.slide--dark .photocap .ct{color:#fff;}
+  .photocap .cd{font-size:13px;color:var(--soft);line-height:1.4;}.slide--dark .photocap .cd{color:var(--grey);}
+  .why{background:var(--bg);border-left:4px solid var(--ink);padding:16px 18px;}
+  .why .wt{font-family:var(--fd);font-weight:700;font-size:18px;}.why .wd{font-size:13px;color:var(--soft);margin-top:5px;line-height:1.4;}
+  .why--y{border-color:var(--yel);}
+  .pt{display:flex;gap:14px;margin-bottom:15px;}
+  .pt .pn{font-family:var(--fd);font-weight:700;font-size:24px;color:var(--yel);flex-shrink:0;width:40px;}
+  .pt .ptt{font-family:var(--fd);font-weight:600;font-size:17px;color:#fff;}
+  .pt .pdd{font-size:13.5px;color:#B8BCC6;line-height:1.45;margin-top:2px;}
+  .ctaBar{background:var(--yel);color:var(--ink);font-family:var(--fd);font-weight:700;font-size:24px;padding:20px 30px;border-radius:10px;display:inline-block;}
+  /* bar chart */
+  .bars{display:flex;align-items:flex-end;gap:30px;height:300px;padding-top:20px;}
+  .barcol{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;}
+  .barcol .bar{width:100%;border-radius:8px 8px 0 0;position:relative;display:flex;justify-content:center;}
+  .barcol .bv{position:absolute;top:-30px;font-family:var(--fd);font-weight:700;font-size:22px;color:var(--ink);}
+  .barcol .bl{margin-top:14px;font-size:14px;color:var(--soft);text-align:center;line-height:1.3;}
+  .slide--dark .barcol .bv{color:#fff;}.slide--dark .barcol .bl{color:var(--grey);}
+  /* timeline */
+  .tl{display:flex;justify-content:space-between;position:relative;margin-top:40px;}
+  .tl::before{content:'';position:absolute;top:22px;left:5%;right:5%;height:3px;background:var(--line);}
+  .tl .tlstep{position:relative;width:18%;text-align:center;}
+  .tl .tldot{width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--yel);font-family:var(--fd);font-weight:700;font-size:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;position:relative;z-index:1;}
+  .tl .tlt{font-family:var(--fd);font-weight:700;font-size:16px;}
+  .tl .tld{font-size:12.5px;color:var(--soft);margin-top:5px;line-height:1.35;}
+  .person{background:var(--bg);border-radius:10px;overflow:hidden;}
+  .person .ph{width:100%;height:200px;}.person .ph img{width:100%;height:100%;object-fit:cover;object-position:center 18%;}
+  .person .pb{padding:13px 16px 16px;}
+  .person .pn{font-family:var(--fd);font-weight:700;font-size:18px;}
+  .person .pr{font-size:11.5px;color:var(--red);font-weight:600;margin-top:2px;text-transform:uppercase;letter-spacing:.3px;line-height:1.3;}
+  .person .pq{font-size:12.5px;color:var(--soft);margin-top:8px;line-height:1.4;font-style:italic;}
+  @media print{@page{size:1280px 720px;margin:0;}body{background:#fff;}.deck{gap:0;padding:0;}.slide{box-shadow:none;page-break-after:always;}}
+</style>
+<script src="shtark-ink/site-loader.js"></script>
+<script src="shtark-ink/deck-mobile.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#0E0F12"/><rect x="30" y="44" width="40" height="5" fill="#F5C518"/><rect x="30" y="52" width="8" height="4" fill="#00AEEF"/><rect x="40" y="52" width="8" height="4" fill="#EC008C"/><rect x="50" y="52" width="8" height="4" fill="#F5C518"/><rect x="60" y="52" width="8" height="4" fill="#E2231A"/></svg></template>
+<div class="deck">
+
+  <!-- 1 COVER -->
+  <section class="slide slide--dark">
+    <div class="split-photo"><img src="shtark-ink/img/prod-ship.jpg" alt="Shtark INK" /></div>
+    <div class="dots"></div>
+    <div class="pad" style="display:flex;flex-direction:column;width:62%;">
+      <div class="cmyk"><i></i><i></i><i></i><i></i></div>
+      <div class="logo" style="margin-top:16px;">Shtark<small>INK</small></div>
+      <div style="margin-top:auto;">
+        <div class="tag tag--y">Дилерская программа · 2026</div>
+        <h1 class="h1" style="font-size:54px;margin:20px 0 22px;">Станьте дилером<br>Shtark&nbsp;INK в&nbsp;своём регионе</h1>
+        <p class="lead" style="max-width:600px;color:#D6D9DE;">Растущий российский продукт без&nbsp;зависимости от&nbsp;импорта. Высокая маржа, эксклюзив по&nbsp;территории, научная база и&nbsp;сервис, которые помогают продавать.</p>
+      </div>
+      <div style="margin-top:34px;font-family:var(--fm);font-size:14px;color:var(--grey);">shtarkink.com · info@shtarkink.com · +7&nbsp;911&nbsp;037&nbsp;48&nbsp;55 · Санкт-Петербург</div>
+    </div>
+  </section>
+
+  <!-- 2 WHY PARTNER (opportunity) -->
+  <section class="slide">
+    <div class="pad">
+      <div class="tag">Возможность</div><span class="num">02</span>
+      <h1 class="h1" style="font-size:40px;margin:12px 0 18px;">Почему дилерство Shtark&nbsp;INK&nbsp;— это выгодно</h1>
+      <p class="lead" style="max-width:880px;margin-bottom:26px;">Рынок гибкой упаковки растёт, а&nbsp;импортные краски стали дороже и&nbsp;нестабильны в&nbsp;поставках. Мы&nbsp;даём дилеру отечественный продукт заводского качества&nbsp;— с&nbsp;маржой, которую не&nbsp;даёт перепродажа импорта.</p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;">
+        <div class="valcard"><div class="vt">Высокая маржа</div><div class="vd">Прямая дилерская цена и&nbsp;шкала скидок от&nbsp;объёма.</div></div>
+        <div class="valcard"><div class="vt">Эксклюзив региона</div><div class="vd">Вы&nbsp;— единственный официальный поставщик в&nbsp;территории.</div></div>
+        <div class="valcard"><div class="vt">Без импортных рисков</div><div class="vd">Российское сырьё, стабильные поставки и&nbsp;цена.</div></div>
+        <div class="valcard"><div class="vt">Поддержка продаж</div><div class="vd">Образцы, выезд технолога, обучение, маркетинг.</div></div>
+      </div>
+      <div class="foot"><span>shtarkink.com</span><span>ООО «Штарк Инк» · Дилерам · 02</span></div>
+    </div>
+  </section>
+
+  <!-- 3 SCIENTIFIC APPROACH -->
+  <section class="slide slide--dark">
+    <div class="dots"></div>
+    <div class="pad">
+      <div class="tag tag--y">Научный подход к разработке</div><span class="num">03</span>
+      <div style="display:grid;grid-template-columns:1.25fr .75fr;gap:44px;height:560px;align-items:center;">
+        <div>
+          <h1 class="h1" style="font-size:34px;margin:0 0 22px;">Продукт, созданный<br>в лаборатории, а&nbsp;не «на&nbsp;глаз»</h1>
+          <div class="pt"><div class="pn">01</div><div><div class="ptt">Высокая пигментация и стабильный цвет</div><div class="pdd">Распределение частиц пигмента контролируется лазерным дифрактометром, размер &lt;&nbsp;2&nbsp;мкм. Отклонение от&nbsp;эталона ΔE&nbsp;&lt;&nbsp;1,5.</div></div></div>
+          <div class="pt"><div class="pn">02</div><div><div class="ptt">«Чистая» печать растра на длинном тираже</div><div class="pdd">Баланс растворителей подобран так, что краска стабильна на&nbsp;тираже 120&nbsp;000&nbsp;п.м. при&nbsp;250–300&nbsp;м/мин&nbsp;— меньше брака у&nbsp;ваших клиентов.</div></div></div>
+          <div class="pt"><div class="pn">03</div><div><div class="ptt">Совместная разработка связующих</div><div class="pdd">ПУ-смолы созданы совместно с&nbsp;«Штарк Кемикалз» под&nbsp;ламинацию&nbsp;— прочные структуры и&nbsp;контролируемая себестоимость.</div></div></div>
+        </div>
+        <div style="height:430px;border-radius:12px;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center;"><img src="shtark-ink/img/uni-cont-img_p0_4.png" alt="Распределение частиц пигмента" style="width:100%;height:100%;object-fit:contain;background:#fff;" /></div>
+      </div>
+      <div class="foot"><span>По мотивам статьи R&amp;D «Серия UNI» · раздел «Новости»</span><span>ООО «Штарк Инк» · Дилерам · 03</span></div>
+    </div>
+  </section>
+
+  <!-- 4 CUSTOM RECIPES -->
+  <section class="slide">
+    <div class="pad">
+      <div class="tag">Индивидуальные рецептуры</div><span class="num">04</span>
+      <div style="display:grid;grid-template-columns:1fr .9fr;gap:46px;height:560px;align-items:center;">
+        <div>
+          <h1 class="h1" style="font-size:38px;margin:0 0 18px;">Краска под&nbsp;задачу<br>вашего клиента</h1>
+          <p class="lead" style="margin-bottom:22px;">Собственная лаборатория колористики разрабатывает рецептуру под&nbsp;конкретный материал, анилокс и&nbsp;дизайн заказчика. Вы&nbsp;приходите к&nbsp;клиенту не&nbsp;с&nbsp;«каталогом», а&nbsp;с&nbsp;готовым решением.</p>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div class="why why--y"><div class="wt">Pantone color-matching за 1 день</div><div class="wd">Точное попадание в&nbsp;эталон с&nbsp;учётом параметров печати клиента.</div></div>
+            <div class="why why--y"><div class="wt">Разработка продукта от 5 дней</div><div class="wd">От&nbsp;лабораторного образца до&nbsp;промышленной партии.</div></div>
+            <div class="why why--y"><div class="wt">Сравнение с текущей краской</div><div class="wd">Подберём аналог импортной краски по&nbsp;TDS&nbsp;— дешевле и&nbsp;доступно.</div></div>
+          </div>
+        </div>
+        <div style="height:480px;border-radius:12px;overflow:hidden;"><img class="imgcover" src="shtark-ink/img/lab-photo.png" alt="Лаборатория колористики" /></div>
+      </div>
+      <div class="foot"><span>shtarkink.com</span><span>ООО «Штарк Инк» · Дилерам · 04</span></div>
+    </div>
+  </section>
+
+  <!-- 5 COMMERCIAL TERMS (economics) -->
+  <section class="slide slide--dark">
+    <div class="dots"></div>
+    <div class="pad">
+      <div class="tag tag--y">Коммерческие условия</div><span class="num">05</span>
+      <h1 class="h1" style="font-size:38px;margin:12px 0 8px;">Экономика дилера</h1>
+      <p class="lead" style="margin-bottom:26px;max-width:760px;">Маржа формируется из&nbsp;прямой дилерской цены и&nbsp;шкалы скидок от&nbsp;объёма. Чем больше объём&nbsp;— тем выше ваша наценка.</p>
+      <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:center;">
+        <div class="bars">
+          <div class="barcol"><div class="bar" style="height:38%;background:#3a3d44;"><span class="bv" style="color:var(--grey);">~12%</span></div><div class="bl">Перепродажа<br>импорта</div></div>
+          <div class="barcol"><div class="bar" style="height:62%;background:var(--cyan);"><span class="bv">до 22%</span></div><div class="bl">Дилер Shtark<br>базовый объём</div></div>
+          <div class="barcol"><div class="bar" style="height:100%;background:var(--yel);"><span class="bv">до 35%</span></div><div class="bl">Дилер Shtark<br>крупный объём</div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="stat"><b>до 45 дней</b><span>отсрочка платежа по договору</span></div>
+          <div class="stat"><b>200 т</b><span>складской запас — отгрузка без ожидания</span></div>
+          <div class="stat"><b>безнал</b><span>работа с НДС, счёт-фактура и УПД</span></div>
+        </div>
+      </div>
+      <div class="foot"><span>Маржа ориентировочная, согласуется в договоре</span><span>ООО «Штарк Инк» · Дилерам · 05</span></div>
+    </div>
+  </section>
+
+  <!-- 6 SPEED OF PRODUCTION & DELIVERY -->
+  <section class="slide">
+    <div class="pad">
+      <div class="tag">Скорость выпуска и доставки</div><span class="num">06</span>
+      <h1 class="h1" style="font-size:40px;margin:12px 0 6px;">От заявки до&nbsp;двери клиента</h1>
+      <p class="lead" style="max-width:820px;">Собственное производство и&nbsp;логистика позволяют отгружать быстро и&nbsp;возить «от&nbsp;двери до&nbsp;двери» по&nbsp;всей РФ и&nbsp;СНГ.</p>
+      <div class="tl">
+        <div class="tlstep"><div class="tldot">1</div><div class="tlt">Заявка</div><div class="tld">Дилер оставляет заказ, технолог уточняет детали.</div></div>
+        <div class="tlstep"><div class="tldot">2</div><div class="tlt">Рецептура</div><div class="tld">Образец / подбор от&nbsp;5&nbsp;дней при&nbsp;нестандарте.</div></div>
+        <div class="tlstep"><div class="tldot">3</div><div class="tlt">Выпуск</div><div class="tld">Складская позиция — отгрузка от&nbsp;1&nbsp;дня.</div></div>
+        <div class="tlstep"><div class="tldot">4</div><div class="tlt">Контроль</div><div class="tld">Паспорт качества, проверка ΔE и&nbsp;вязкости.</div></div>
+        <div class="tlstep"><div class="tldot">5</div><div class="tlt">Доставка</div><div class="tld">«От двери до&nbsp;двери» по&nbsp;РФ и&nbsp;СНГ.</div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;">
+        <div class="valcard"><div class="vt">от 1 дня</div><div class="vd">отгрузка складских позиций</div></div>
+        <div class="valcard"><div class="vt">от 5 дней</div><div class="vd">разработка нестандартного продукта</div></div>
+        <div class="valcard"><div class="vt">РФ и СНГ</div><div class="vd">доставка собственной логистикой</div></div>
+      </div>
+      <div class="foot"><span>shtarkink.com</span><span>ООО «Штарк Инк» · Дилерам · 06</span></div>
+    </div>
+  </section>
+
+  <!-- 7 AGILITY / MARKET RESPONSE -->
+  <section class="slide slide--dark">
+    <div class="dots"></div>
+    <div class="pad">
+      <div class="tag tag--y">Гибкость и реакция на рынок</div><span class="num">07</span>
+      <div style="display:grid;grid-template-columns:.85fr 1.15fr;gap:42px;height:560px;align-items:center;">
+        <div style="height:480px;border-radius:12px;overflow:hidden;"><img class="imgcover" src="shtark-ink/img/prod-disp.jpg" alt="Производство" /></div>
+        <div>
+          <h1 class="h1" style="font-size:34px;margin:0 0 20px;">Оперативно реагируем<br>на запросы рынка</h1>
+          <div class="pt"><div class="pn">›</div><div><div class="ptt">Быстрая смена рецептур</div><div class="pdd">Полуавтоматическое производство позволяет быстро перенастраивать выпуск под&nbsp;новые требования и&nbsp;материалы.</div></div></div>
+          <div class="pt"><div class="pn">›</div><div><div class="ptt">Импортозамещение под ключ</div><div class="pdd">Когда у&nbsp;клиента «ушёл» импортный поставщик&nbsp;— мы&nbsp;быстро даём аналог, а&nbsp;вы&nbsp;закрываете сделку.</div></div></div>
+          <div class="pt"><div class="pn">›</div><div><div class="ptt">Прямой контакт с производством</div><div class="pdd">Без длинной цепочки посредников&nbsp;— решение по&nbsp;нестандартной задаче принимается за&nbsp;часы, а&nbsp;не&nbsp;недели.</div></div></div>
+        </div>
+      </div>
+      <div class="foot"><span>shtarkink.com</span><span>ООО «Штарк Инк» · Дилерам · 07</span></div>
+    </div>
+  </section>
+
+  <!-- 8 PERSONAL RESPONSIBILITY (team) -->
+  <section class="slide">
+    <div class="pad">
+      <div class="tag">Личная ответственность</div><span class="num">08</span>
+      <h1 class="h1" style="font-size:38px;margin:12px 0 6px;">За&nbsp;каждым заказом&nbsp;— конкретный человек</h1>
+      <p class="lead" style="max-width:880px;margin-bottom:24px;">Дилер работает не&nbsp;с&nbsp;«колл-центром», а&nbsp;с&nbsp;людьми, которые отвечают за&nbsp;результат своим именем&nbsp;— от&nbsp;технолога до&nbsp;логиста.</p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;">
+        <div class="person"><div class="ph"><img src="shtark-ink/img/face-ceo.png" alt="" style="object-position:center 28%;" /></div><div class="pb"><div class="pn">Екатерина</div><div class="pr">Исп. директор · ВЭД</div><div class="pq">«Отвечаю за надёжность поставок.»</div></div></div>
+        <div class="person"><div class="ph"><img src="shtark-ink/img/face-maxim.png" alt="" style="object-position:center 28%;" /></div><div class="pb"><div class="pn">Максим</div><div class="pr">Техподдержка · флексо</div><div class="pq">«Настрою краску на станке клиента.»</div></div></div>
+        <div class="person"><div class="ph"><img src="shtark-ink/img/face-konstantin.png" alt="" style="object-position:center 28%;" /></div><div class="pb"><div class="pn">Константин</div><div class="pr">Главный бухгалтер (CAO)</div><div class="pq">«Прозрачные расчёты и документы.»</div></div></div>
+        <div class="person"><div class="ph"><img src="shtark-ink/img/face-tatiana.png" alt="" style="object-position:center 28%;" /></div><div class="pb"><div class="pn">Татьяна</div><div class="pr">Логистика и ВЭД</div><div class="pq">«Довезу заказ точно в срок.»</div></div></div>
+      </div>
+      <div class="foot"><span>shtarkink.com</span><span>ООО «Штарк Инк» · Дилерам · 08</span></div>
+    </div>
+  </section>
+
+  <!-- 9 SUPPORT PACKAGE -->
+  <section class="slide slide--dark">
+    <div class="dots"></div>
+    <div class="pad">
+      <div class="tag tag--y">Что получает дилер</div><span class="num">09</span>
+      <h1 class="h1" style="font-size:38px;margin:12px 0 24px;">Полный пакет поддержки продаж</h1>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+        <div class="why why--y" style="background:var(--ink2);"><div class="wt" style="color:#fff;">Дилерская цена</div><div class="wd" style="color:var(--grey);">Прямые отгрузки с&nbsp;завода и&nbsp;прогрессивная скидка.</div></div>
+        <div class="why why--y" style="background:var(--ink2);"><div class="wt" style="color:#fff;">Эксклюзив региона</div><div class="wd" style="color:var(--grey);">Закрепляем территорию за&nbsp;вами.</div></div>
+        <div class="why why--y" style="background:var(--ink2);"><div class="wt" style="color:#fff;">Бесплатные образцы</div><div class="wd" style="color:var(--grey);">Под&nbsp;материал клиента + POS-материалы.</div></div>
+        <div class="why why--y" style="background:var(--ink2);"><div class="wt" style="color:#fff;">Выезд технолога</div><div class="wd" style="color:var(--grey);">Настройка краски прямо на&nbsp;производстве клиента.</div></div>
+        <div class="why why--y" style="background:var(--ink2);"><div class="wt" style="color:#fff;">Обучение и маркетинг</div><div class="wd" style="color:var(--grey);">Помогаем продавать и&nbsp;продвигать продукт.</div></div>
+        <div class="why why--y" style="background:var(--ink2);"><div class="wt" style="color:#fff;">Отсрочка платежа</div><div class="wd" style="color:var(--grey);">До&nbsp;45&nbsp;дней по&nbsp;договору поставки.</div></div>
+      </div>
+      <div class="foot"><span>shtarkink.com</span><span>ООО «Штарк Инк» · Дилерам · 09</span></div>
+    </div>
+  </section>
+
+  <!-- 10 CTA -->
+  <section class="slide slide--dark">
+    <div class="split-photo"><img src="shtark-ink/img/cover-supplier.jpeg" alt="Shtark INK" /></div>
+    <div class="dots"></div>
+    <div class="pad" style="display:flex;flex-direction:column;width:62%;">
+      <div class="cmyk"><i></i><i></i><i></i><i></i></div>
+      <div class="logo" style="margin-top:16px;">Shtark<small>INK</small></div>
+      <div style="margin-top:auto;">
+        <div class="tag tag--y">Станьте официальным дилером</div>
+        <h1 class="h1" style="font-size:46px;margin:18px 0 24px;">Закрепим за&nbsp;вами регион<br>и&nbsp;начнём зарабатывать вместе</h1>
+        <div class="ctaBar">Запросить дилерские условия&nbsp;→</div>
+      </div>
+      <div style="margin-top:auto;display:flex;gap:36px;font-family:var(--fm);font-size:14px;color:#C6CAD2;">
+        <span><span style="color:var(--grey);">ТЕЛЕФОН</span><br>+7 911 037 48 55</span>
+        <span><span style="color:var(--grey);">E-MAIL</span><br>info@shtarkink.com</span>
+        <span><span style="color:var(--grey);">САЙТ</span><br>shtarkink.com</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

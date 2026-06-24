@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /uploads/
+Disallow: /build/
+Disallow: /.bundles/
+
+Sitemap: https://shtarkink.com/sitemap.xml

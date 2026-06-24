@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+<meta name="theme-color" content="#0E0F12" />
+
+<title>Серия UNI (NSF-UNI) · Техническая информация · Shtark INK</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Купить краску серии UNI (NSF-UNI) Shtark INK для флексо- и глубокой печати на гибкой упаковке. Универсальная NC/PU серия: характеристики, растворители, упаковка. Цена и образцы по запросу." />
+<meta name="keywords" content="краска UNI, спиртовая краска UNI, NSF-UNI, краска для флексопечати, межслойная и поверхностная печать, краска для гибкой упаковки, купить краску UNI, Shtark INK" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="shtark-ink/styles.css?v=4" />
+
+<style>
+  .tech-top { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 2px solid var(--ink); box-shadow: 0 1px 0 rgba(15,17,21,.06), 0 8px 24px -16px rgba(15,17,21,.18); }
+  .tech-top__row { display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 24px; }
+  .tech-top__logo img { height: 44px; width: auto; display: block; }
+  .tech-top__back { font-family: var(--font-body); font-weight: 600; font-size: 14px; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; border-bottom: 2px solid transparent; padding: 4px 0; transition: border-color .14s; }
+  .tech-top__back:hover { border-bottom-color: var(--accent); }
+
+  .tech-hero { padding: 72px 0 28px; }
+  .tech-hero__tag { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 1.6px; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 14px; display: inline-flex; align-items: center; gap: 10px; }
+  .tech-hero__tag::before { content: ''; width: 22px; height: 2px; background: var(--accent); }
+  .tech-hero__title { font-family: var(--font-display); font-size: 52px; font-weight: 700; letter-spacing: -1.4px; line-height: 1.05; margin: 0 0 16px; }
+  .tech-hero__sub { font-size: 18px; color: var(--ink-soft); max-width: 640px; margin: 0; line-height: 1.5; }
+
+  .prod { padding: 48px 0 56px; border-top: 1px solid var(--line); }
+  .prod__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; flex-wrap: wrap; margin-bottom: 24px; }
+  .prod__num { font-family: var(--font-mono); font-size: 12px; letter-spacing: 1.4px; color: var(--accent-deep); font-weight: 700; margin-bottom: 12px; }
+  .prod__title { font-family: var(--font-display); font-size: 34px; font-weight: 700; letter-spacing: -0.8px; line-height: 1.08; margin: 0; }
+  .prod__lead { font-size: 17px; color: var(--ink-mid); line-height: 1.55; max-width: 760px; margin: 0; }
+  .prod__dl { flex-shrink: 0; }
+
+  .prod__grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; margin-top: 32px; }
+  .prod__block h3 { font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 14px; }
+  .prod__block + .prod__block { margin-top: 28px; }
+  .prod__list { list-style: none; margin: 0; padding: 0; }
+  .prod__list li { position: relative; padding: 8px 0 8px 20px; font-size: 15px; color: var(--ink-mid); line-height: 1.5; border-bottom: 1px dashed var(--line); }
+  .prod__list li:last-child { border-bottom: 0; }
+  .prod__list li::before { content: ''; position: absolute; left: 0; top: 16px; width: 9px; height: 2px; background: var(--accent); }
+  .prod__list li b { color: var(--ink); font-weight: 600; }
+
+  .spec { border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: #fff; }
+  .spec + .spec { margin-top: 16px; }
+  .spec__row { display: flex; justify-content: space-between; gap: 16px; padding: 14px 18px; border-bottom: 1px solid var(--line); font-size: 14px; }
+  .spec__row:last-child { border-bottom: 0; }
+  .spec__row:nth-child(odd) { background: var(--bg-soft); }
+  .spec__k { color: var(--ink-soft); }
+  .spec__v { color: var(--ink); font-weight: 600; font-family: var(--font-mono); text-align: right; }
+  .spec__head { background: var(--ink) !important; color: #fff; font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; padding: 12px 18px; }
+
+  .tech-note { background: var(--bg-tint); border-radius: var(--radius-lg); padding: 24px 28px; margin: 8px 0 72px; font-size: 13px; color: var(--ink-soft); line-height: 1.6; }
+  .tech-note b { color: var(--ink); }
+
+  @media (max-width: 900px) { .prod__grid { grid-template-columns: 1fr; gap: 28px; } .tech-hero__title { font-size: 38px; } .prod__title { font-size: 28px; } }
+  @media (max-width: 640px) { .tech-top__back span.full { display: none; } }
+</style>
+<style id="si-yellow-back">.top__back,.tech-top__back,.news-top__back,.art-top__back,.sm-top__back{background:#F5C518!important;color:#0F1115!important;border:0!important;border-bottom:0!important;border-radius:8px!important;padding:10px 18px!important;font-weight:700!important;}.top__back:hover,.tech-top__back:hover,.news-top__back:hover,.art-top__back:hover,.sm-top__back:hover{background:#E0AF00!important;}@media(max-width:640px){.top__back,.tech-top__back,.news-top__back,.art-top__back,.sm-top__back{margin-right:64px!important;}}</style>
+
+<link rel="canonical" href="https://shtarkink.com/uni-tech.html" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<meta name="theme-color" content="#0F1115" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Shtark INK" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:title" content="Серия UNI (NSF-UNI) · Техническая информация · Shtark INK" />
+<meta property="og:description" content="Купить краску серии UNI (NSF-UNI) Shtark INK для флексо- и глубокой печати на гибкой упаковке. Универсальная NC/PU серия: характеристики, растворители, упаковка. Цена и образцы по запросу." />
+<meta property="og:url" content="https://shtarkink.com/uni-tech.html" />
+<meta property="og:image" content="https://shtarkink.com/shtark-ink/img/hero.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Серия UNI (NSF-UNI) · Техническая информация · Shtark INK" />
+<meta name="twitter:description" content="Купить краску серии UNI (NSF-UNI) Shtark INK для флексо- и глубокой печати на гибкой упаковке. Универсальная NC/PU серия: характеристики, растворители, упаковка. Цена и образцы по запросу." />
+<meta name="twitter:image" content="https://shtarkink.com/shtark-ink/img/hero.png" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Краски серии UNI","category":"Спиртовые краски для флексопечати","description":"Купить краску серии UNI (NSF-UNI) Shtark INK для флексо- и глубокой печати на гибкой упаковке. Универсальная NC/PU серия: характеристики, растворители, упаковка. Цена и образцы по запросу.","brand":{"@type":"Brand","name":"Shtark INK"},"manufacturer":{"@type":"Organization","@id":"https://shtarkink.com/#org","name":"Shtark INK"},"url":"https://shtarkink.com/uni-tech.html","image":"https://shtarkink.com/shtark-ink/img/hero.png","offers":{"@type":"Offer","priceCurrency":"RUB","availability":"https://schema.org/InStock","seller":{"@type":"Organization","@id":"https://shtarkink.com/#org","name":"Shtark INK"},"url":"https://shtarkink.com/uni-tech.html","businessFunction":"http://purl.org/goodrelations/v1#Sell"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://shtarkink.com/"},{"@type":"ListItem","position":2,"name":"Продукция","item":"https://shtarkink.com/#catalog"},{"@type":"ListItem","position":3,"name":"Краски серии UNI","item":"https://shtarkink.com/uni-tech.html"}]}</script>
+<script src="shtark-ink/site-loader.js"></script>
+</head>
+<body>
+<header class="tech-top">
+  <div class="wrap tech-top__row">
+    <a class="tech-top__logo" href="index.html"><img src="shtark-ink/img/logo.png" alt="Shtark INK" /></a>
+    <a class="tech-top__back" href="index.html#catalog">← <span class="full">К&nbsp;каталогу </span>продукции</a>
+  </div>
+</header>
+
+<main>
+  <section class="tech-hero">
+    <div class="wrap">
+      <div class="tech-hero__tag">Серия UNI · Техническая информация</div>
+      <h1 class="tech-hero__title">Краска полиграфическая серии NSF-UNI</h1>
+      <p class="tech-hero__sub">Универсальная серия для&nbsp;поверхностной и&nbsp;межслойной печати по&nbsp;широкому спектру материалов гибкой упаковки. Характеристики, рекомендации по&nbsp;печати, растворители, упаковка и&nbsp;хранение. Полный паспорт&nbsp;— в&nbsp;PDF.</p>
+    </div>
+  </section>
+
+  <section class="prod">
+    <div class="wrap">
+      <div class="prod__head">
+        <div>
+          <div class="prod__num">Универсальная · NC / PU основа</div>
+          <h2 class="prod__title">Серия NSF-UNI</h2>
+        </div>
+        <a class="btn btn--dark prod__dl" href="shtark-ink/docs/uni-nsf.pdf" target="_blank" rel="noopener">Скачать PDF <span class="btn__arrow">↓</span></a>
+      </div>
+      <p class="prod__lead">Универсальная органорастворимая серия красок на&nbsp;нитроцеллюлозно-полиуретановой основе. Рекомендована для&nbsp;поверхностной и&nbsp;межслойной печати на&nbsp;широком спектре материалов для&nbsp;гибкой упаковки.</p>
+
+      <div class="prod__grid">
+        <div>
+          <div class="prod__block">
+            <h3>Печатный процесс и&nbsp;характеристики</h3>
+            <ul class="prod__list">
+              <li><b>Печать:</b> флексографический, глубокий.</li>
+              <li>Хорошие печатные свойства, высокий уровень глянца.</li>
+              <li>Высокий уровень адгезии к&nbsp;запечатываемому материалу.</li>
+              <li>Легко испаряемые растворители.</li>
+              <li><b>Термостойкость</b> до&nbsp;180&nbsp;°С.</li>
+            </ul>
+          </div>
+          <div class="prod__block">
+            <h3>Запечатываемые материалы</h3>
+            <ul class="prod__list">
+              <li>PET химически обработанный.</li>
+              <li>OPP, BOPP, CPP.</li>
+              <li>LDPE, HDPE.</li>
+              <li>Предварительно праймированные металлизированные материалы.</li>
+            </ul>
+          </div>
+          <div class="prod__block">
+            <h3>Рекомендации по&nbsp;печати</h3>
+            <ul class="prod__list">
+              <li><b>Поверхностное натяжение:</b> PP, PE&nbsp;— не&nbsp;ниже 38&nbsp;дин/см; PET (хим. активированный)&nbsp;— не&nbsp;ниже 52&nbsp;дин/см. Ниже&nbsp;— требуется обработка коронным разрядом.</li>
+              <li><b>Температура сушки:</b> 60–80&nbsp;°С (зависит от&nbsp;привеса краски, материала и&nbsp;скорости печати).</li>
+              <li><b>Анилоксы:</b> линиатура 240–400&nbsp;лин/см, объём ячейки 8–2&nbsp;см³/м². Для&nbsp;снижения насыщенности цвета&nbsp;— лак-осветлитель Extender&nbsp;UNI.</li>
+            </ul>
+          </div>
+          <div class="prod__block">
+            <h3>Средства разбавления</h3>
+            <ul class="prod__list">
+              <li><b>Флексопечать · разбавитель:</b> н-пропанол/этилацетат (80/20), н-пропанол/н-пропилацетат (80/20). Замедлитель&nbsp;— этоксипропанол; ускоритель&nbsp;— этилацетат.</li>
+              <li><b>Глубокая печать · разбавитель:</b> н-пропанол/этилацетат (50/50). Замедлитель&nbsp;— н-пропанол; ускоритель&nbsp;— этилацетат.</li>
+              <li><b>Смывка:</b> те&nbsp;же растворители, что и&nbsp;для&nbsp;разбавления.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="spec">
+            <div class="spec__head">Информация о&nbsp;продукте</div>
+            <div class="spec__row"><span class="spec__k">Вязкость при поставке, DIN4/20°С</span><span class="spec__v">25–60 сек</span></div>
+            <div class="spec__row"><span class="spec__k">Рабочая вязкость, DIN4/20°С</span><span class="spec__v">18–22 сек</span></div>
+            <div class="spec__row"><span class="spec__k">Термостойкость</span><span class="spec__v">до 180 °С</span></div>
+          </div>
+          <div class="spec">
+            <div class="spec__head">Анилоксовые валы</div>
+            <div class="spec__row"><span class="spec__k">Линиатура</span><span class="spec__v">240–400 лин/см</span></div>
+            <div class="spec__row"><span class="spec__k">Объём ячейки</span><span class="spec__v">8–2 см³/м²</span></div>
+          </div>
+          <div class="spec">
+            <div class="spec__head">Упаковка</div>
+            <div class="spec__row"><span class="spec__k">Металлические вёдра</span><span class="spec__v">20 кг (25 кг White)</span></div>
+            <div class="spec__row"><span class="spec__k">Металлические бочки</span><span class="spec__v">200 кг</span></div>
+          </div>
+          <div class="spec">
+            <div class="spec__head">Хранение</div>
+            <div class="spec__row"><span class="spec__k">Гарантийный срок</span><span class="spec__v">12 мес</span></div>
+            <div class="spec__row"><span class="spec__k">Температура</span><span class="spec__v">не ниже +10°С</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="tech-note">
+      <b>Служба технической поддержки.</b> ООО «ШТАРК ИНК» предоставляет заказчикам полную техническую поддержку поставляемых продуктов, включая разработку и&nbsp;адаптацию продуктов под различные применения. Из-за&nbsp;большого количества материалов разных производителей рекомендуем предварительные тесты перед серийным производством. По&nbsp;вопросам&nbsp;— <a href="#" onclick="siForm('contact');return false;" style="color:var(--ink);font-weight:600">свяжитесь с&nbsp;нами</a>.
+    </div>
+  </section>
+</main>
+<a href="#" onclick="siForm('contact');return false;" class="partner-fab is-visible" aria-label="Связаться с отделом продаж и получить бесплатные образцы">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+  Связаться с отделом продаж и получить образцы
+</a>
+<script src="shtark-ink/lang.js?v=4"></script>
+<script src="shtark-ink/cookie.js"></script>
+<script src="shtark-ink/syrye-form.js"></script>
+<noscript><img src="//counter.rambler.ru/top100.cnt?pid=7751942" alt="Топ-100" style="position:absolute;left:-9999px" /></noscript>
+<script src="shtark-ink/motion.js?v=4"></script>
+</body>
+</html>

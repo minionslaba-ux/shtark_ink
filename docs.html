@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+<meta name="theme-color" content="#0E0F12" />
+
+<title>Документация, раскрытие информации · Shtark INK</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Документация и раскрытие информации ООО «Штарк Инк»: карточка предприятия, политика конфиденциальности, согласие на обработку персональных данных." />
+<meta name="keywords" content="документация Shtark INK, паспорт качества, SDS, реквизиты, коммерческое предложение, договор поставки, карта предприятия" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0F1115; --ink-mid:#3F4451; --ink-soft:#6B7280; --line:#E5E7EB;
+    --bg-tint:#F4F5F7; --dark:#0F1115; --accent:#F5C518; --accent-deep:#E0AF00;
+    --fd:'Space Grotesk','Inter',sans-serif; --fb:'Inter',system-ui,sans-serif; --fm:'JetBrains Mono',monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:var(--fb);color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .top{position:sticky;top:0;z-index:10;background:#fff;border-bottom:2px solid var(--ink);}
+  .top__row{max-width:900px;margin:0 auto;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between;}
+  .top__logo{display:flex;align-items:center;gap:12px;}
+  .top__logo img{height:40px;width:auto;display:block;}
+  .top__back{font-family:var(--fb);font-weight:600;font-size:14px;text-decoration:none;color:var(--ink);border:1.5px solid var(--line);padding:10px 18px;border-radius:6px;transition:border-color .14s;}
+  .top__back:hover{border-color:var(--ink);}
+  .hero{background:var(--dark);color:#F4F5F7;padding:64px 32px 56px;}
+  .hero__in{max-width:900px;margin:0 auto;}
+  .hero__tag{font-family:var(--fm);font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:#9CA0AB;margin:0 0 14px;display:inline-flex;align-items:center;gap:10px;}
+  .hero__tag::before{content:'';width:22px;height:2px;background:var(--accent);}
+  .hero__h{font-family:var(--fd);font-size:40px;font-weight:700;letter-spacing:-1px;line-height:1.08;margin:0 0 14px;}
+  .hero__sub{font-size:17px;color:#B8BCC6;line-height:1.6;max-width:620px;margin:0;}
+  main{max-width:900px;margin:0 auto;padding:56px 32px 72px;}
+  .docs-list{display:flex;flex-direction:column;gap:14px;}
+  .doc-card{display:flex;align-items:center;gap:18px;padding:22px 24px;border:1px solid var(--line);border-radius:12px;text-decoration:none;color:var(--ink);transition:border-color .14s,transform .14s,box-shadow .14s;background:#fff;}
+  .doc-card:hover{border-color:var(--ink);transform:translateY(-2px);box-shadow:0 8px 28px -16px rgba(15,17,21,.25);}
+  .doc-card__ic{flex-shrink:0;width:48px;height:48px;border-radius:10px;background:var(--ink);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;font-family:var(--fm);}
+  .doc-card__body{flex:1;min-width:0;}
+  .doc-card__t{font-family:var(--fd);font-size:18px;font-weight:600;letter-spacing:-.3px;margin:0 0 4px;}
+  .doc-card__d{font-size:14px;color:var(--ink-soft);line-height:1.5;margin:0;}
+  .doc-card__meta{font-family:var(--fm);font-size:11px;color:var(--ink-soft);flex-shrink:0;text-transform:uppercase;letter-spacing:.6px;}
+  .section-label{font-family:var(--fm);font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--ink-soft);margin:40px 0 16px;}
+  .section-label:first-child{margin-top:0;}
+  .ftr{background:#08090C;color:#9CA0AB;}
+  .ftr__in{max-width:900px;margin:0 auto;padding:28px 32px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-family:var(--fm);font-size:11px;letter-spacing:.4px;}
+  .ftr__in a{color:#9CA0AB;text-decoration:none;}
+  .ftr__in a:hover{color:var(--accent);}
+  @media(max-width:640px){.hero__h{font-size:30px;}.top__back span.full{display:none;}.doc-card{flex-wrap:wrap;}}
+</style>
+<style id="si-yellow-back">.top__back,.tech-top__back,.news-top__back,.art-top__back,.sm-top__back{background:#F5C518!important;color:#0F1115!important;border:0!important;border-bottom:0!important;border-radius:8px!important;padding:10px 18px!important;font-weight:700!important;}.top__back:hover,.tech-top__back:hover,.news-top__back:hover,.art-top__back:hover,.sm-top__back:hover{background:#E0AF00!important;}@media(max-width:640px){.top__back,.tech-top__back,.news-top__back,.art-top__back,.sm-top__back{margin-right:64px!important;}}</style>
+
+<link rel="canonical" href="https://shtarkink.com/docs.html" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<meta name="theme-color" content="#0F1115" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Shtark INK" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:title" content="Документация, раскрытие информации · Shtark INK" />
+<meta property="og:description" content="Документация и раскрытие информации ООО «Штарк Инк»: карточка предприятия, политика конфиденциальности, согласие на обработку персональных данных." />
+<meta property="og:url" content="https://shtarkink.com/docs.html" />
+<meta property="og:image" content="https://shtarkink.com/shtark-ink/img/hero.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Документация, раскрытие информации · Shtark INK" />
+<meta name="twitter:description" content="Документация и раскрытие информации ООО «Штарк Инк»: карточка предприятия, политика конфиденциальности, согласие на обработку персональных данных." />
+<meta name="twitter:image" content="https://shtarkink.com/shtark-ink/img/hero.png" />
+<script src="shtark-ink/site-loader.js"></script>
+</head>
+<body>
+<header class="top">
+  <div class="top__row">
+    <a class="top__logo" href="index.html"><img src="shtark-ink/img/logo.png" alt="Shtark INK" /></a>
+    <a class="top__back" href="index.html">← <span class="full">Вернуться </span>на сайт</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero__in">
+    <div class="hero__tag">Документация</div>
+    <h1 class="hero__h">Документация, раскрытие информации</h1>
+    <p class="hero__sub">Документы ООО «Штарк Инк» для скачивания и ознакомления. Карточка предприятия содержит полные реквизиты для заключения договора поставки.</p>
+  </div>
+</section>
+
+<main>
+  <div class="section-label">Реквизиты и договор</div>
+  <div class="docs-list">
+    <a class="doc-card" href="shtark-ink/docs/company-card.pdf" target="_blank" rel="noopener" download>
+      <span class="doc-card__ic">↓</span>
+      <span class="doc-card__body">
+        <span class="doc-card__t">Карточка предприятия</span>
+        <span class="doc-card__d">Полные реквизиты ООО «Штарк Инк»: ИНН/КПП, ОГРН, банковские реквизиты, адреса.</span>
+      </span>
+      <span class="doc-card__meta">PDF</span>
+    </a>
+    <a class="doc-card" href="shtark-ink/docs/company-card-en.pdf" target="_blank" rel="noopener" download>
+      <span class="doc-card__ic">↓</span>
+      <span class="doc-card__body">
+        <span class="doc-card__t">Company Card (English)</span>
+        <span class="doc-card__d">Full company details of Shtark Ink LLC in English: INN/KPP, OGRN, address, contacts and management.</span>
+      </span>
+      <span class="doc-card__meta">PDF · EN</span>
+    </a>
+    <a class="doc-card" href="shtark-ink/docs/karta-rekvizitov.docx" target="_blank" rel="noopener" download>
+      <span class="doc-card__ic">↓</span>
+      <span class="doc-card__body">
+        <span class="doc-card__t">Реквизиты счёта для зачислений (Word)</span>
+        <span class="doc-card__d">Банковские реквизиты ООО «Штарк Инк» для переводов внутри страны и международных (ВТБ, SWIFT VTBRRUM2MS2).</span>
+      </span>
+      <span class="doc-card__meta">DOCX</span>
+    </a>
+    <a class="doc-card" href="shtark-ink/docs/order-form.xlsx" target="_blank" rel="noopener" download>
+      <span class="doc-card__ic">↓</span>
+      <span class="doc-card__body">
+        <span class="doc-card__t">Бланк заказа продукции (Excel)</span>
+        <span class="doc-card__d">Фирменный шаблон заказа: артикул, наименование, вес, цена и сумма с НДС (авторасчёт), сроки и дата доставки, адрес и способ доставки, договор, валюта, менеджеры.</span>
+      </span>
+      <span class="doc-card__meta">XLSX</span>
+    </a>
+    <a class="doc-card" href="shtark-ink/docs/zayavka-na-zakupku.docx" target="_blank" rel="noopener" download>
+      <span class="doc-card__ic">↓</span>
+      <span class="doc-card__body">
+        <span class="doc-card__t">Заявка на закупку — шаблон (Word)</span>
+        <span class="doc-card__d">Фирменный бланк ООО «Штарк Инк» для запроса поставки сырья и тары: реквизиты, ответственные менеджеры, таблица материалов с ценами и сроками, условия оплаты, способы доставки, схема проезда и отметки о согласовании. Редактируется в Word.</span>
+      </span>
+      <span class="doc-card__meta">DOCX</span>
+    </a>
+    <a class="doc-card" href="shtark-ink/docs/documents-for-contract.pdf" target="_blank" rel="noopener" download>
+      <span class="doc-card__ic">↓</span>
+      <span class="doc-card__body">
+        <span class="doc-card__t">Список документов для заключения договора</span>
+        <span class="doc-card__d">Полный перечень документов для проверки контрагента и заключения договора поставки.</span>
+      </span>
+      <span class="doc-card__meta">PDF</span>
+    </a>
+  </div>
+
+  <div class="section-label">Презентации и маркетинговые материалы</div>
+  <div class="docs-list">
+    <a class="doc-card" href="commercial-offer.html" target="_blank" rel="noopener">
+      <span class="doc-card__ic">↓</span>
+      <span class="doc-card__body">
+        <span class="doc-card__t">Коммерческое предложение</span>
+        <span class="doc-card__d">КП для клиента на фирменном бланке: серии красок, коммерческие условия, сервис и контакты отдела продаж.</span>
+      </span>
+      <span class="doc-card__meta">DECK</span>
+    </a>
+    <a class="doc-card" href="company-presentation.html" target="_blank" rel="noopener">
+      <span class="doc-card__ic">↓</span>
+      <span class="doc-card__body">
+        <span class="doc-card__t">Презентация компании</span>
+        <span class="doc-card__d">О компании, производство, продукция, миссия и ценности, команда Shtark INK.</span>
+      </span>
+      <span class="doc-card__meta">DECK</span>
+    </a>
+    <a class="doc-card" href="dealers-presentation.html" target="_blank" rel="noopener">
+      <span class="doc-card__ic">↓</span>
+      <span class="doc-card__body">
+        <span class="doc-card__t">Презентация для дилеров</span>
+        <span class="doc-card__d">Дилерская программа: маржа, эксклюзив региона, научный подход, скорость выпуска и доставки, поддержка продаж.</span>
+      </span>
+      <span class="doc-card__meta">DECK</span>
+    </a>
+    <a class="doc-card" href="suppliers-presentation.html" target="_blank" rel="noopener">
+      <span class="doc-card__ic">↓</span>
+      <span class="doc-card__body">
+        <span class="doc-card__t">Презентация отдела закупок</span>
+        <span class="doc-card__d">Условия работы, объёмы закупа сырья и тары, как стать поставщиком Shtark INK.</span>
+      </span>
+      <span class="doc-card__meta">DECK</span>
+    </a>
+    <a class="doc-card" href="shtark-ink/docs/letterhead-A.docx" target="_blank" rel="noopener" download>
+      <span class="doc-card__ic">↓</span>
+      <span class="doc-card__body">
+        <span class="doc-card__t">Фирменный бланк A — для писем (Word)</span>
+        <span class="doc-card__d">Шапка с логотипом и реквизитами сверху, поля «Исх. №» и «Уважаемый(ая)». Редактируется в Word.</span>
+      </span>
+      <span class="doc-card__meta">DOCX</span>
+    </a>
+    <a class="doc-card" href="shtark-ink/docs/letterhead-B.docx" target="_blank" rel="noopener" download>
+      <span class="doc-card__ic">↓</span>
+      <span class="doc-card__body">
+        <span class="doc-card__t">Фирменный бланк B — с боковой панелью (Word)</span>
+        <span class="doc-card__d">Тёмная панель слева с логотипом, реквизитами и адресами. Текст печатается справа.</span>
+      </span>
+      <span class="doc-card__meta">DOCX</span>
+    </a>
+    <a class="doc-card" href="shtark-ink/docs/letterhead-C.docx" target="_blank" rel="noopener" download>
+      <span class="doc-card__ic">↓</span>
+      <span class="doc-card__body">
+        <span class="doc-card__t">Фирменный бланк C — минимальный (Word)</span>
+        <span class="doc-card__d">Логотип по центру, реквизиты внизу, угловые акценты. Редактируется в Word.</span>
+      </span>
+      <span class="doc-card__meta">DOCX</span>
+    </a>
+  </div>
+
+  <div class="section-label">Правовые документы</div>
+  <div class="docs-list">
+    <a class="doc-card" href="shtark-ink/docs/edo-agreement.pdf" target="_blank" rel="noopener" download>
+      <span class="doc-card__ic">↓</span>
+      <span class="doc-card__body">
+        <span class="doc-card__t">Соглашение об электронном документообороте (ЭДО)</span>
+        <span class="doc-card__d">Условия обмена юридически значимыми электронными документами через оператора АО «Калуга Астрал».</span>
+      </span>
+      <span class="doc-card__meta">PDF</span>
+    </a>
+    <a class="doc-card" href="policy.html" target="_blank" rel="noopener">
+      <span class="doc-card__ic">→</span>
+      <span class="doc-card__body">
+        <span class="doc-card__t">Политика конфиденциальности</span>
+        <span class="doc-card__d">Порядок обработки и защиты персональных данных на сайте.</span>
+      </span>
+      <span class="doc-card__meta">HTML</span>
+    </a>
+    <a class="doc-card" href="policy.html#consent" target="_blank" rel="noopener">
+      <span class="doc-card__ic">→</span>
+      <span class="doc-card__body">
+        <span class="doc-card__t">Согласие на обработку персональных данных</span>
+        <span class="doc-card__d">Условия согласия, предоставляемого при отправке формы на сайте.</span>
+      </span>
+      <span class="doc-card__meta">HTML</span>
+    </a>
+  </div>
+</main>
+
+<footer class="ftr">
+  <div class="ftr__in">
+    <span>© 2026 ООО «ШТАРК ИНК» · ВСЕ ПРАВА ЗАЩИЩЕНЫ</span>
+    <span><a href="index.html">← Вернуться на сайт</a></span>
+  </div>
+</footer>
+<script src="shtark-ink/lang.js?v=4"></script>
+<script src="shtark-ink/cookie.js"></script>
+<noscript><img src="//counter.rambler.ru/top100.cnt?pid=7751942" alt="Топ-100" style="position:absolute;left:-9999px" /></noscript>
+<script src="shtark-ink/motion.js?v=4"></script>
+</body>
+</html>
